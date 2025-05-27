@@ -4,23 +4,69 @@ import Login from "../features/auth/pages/Login";
 import Register from "../features/auth/pages/Register";
 import ForgotPassword from "../features/auth/pages/ForgotPassword";
 import CheckYourEmail from "../features/auth/pages/CheckYourEmail";
-// import EmailVerified from "../features/auth/pages/EmailVerified";
+import EmailVerified from "../features/auth/pages/EmailVerified";
 import HomePage from "./pages/HomePage";
+import { PublicRoute } from "./routes/PublicRoute";
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/auth/checkyouremail" element={<CheckYourEmail />} />
-        {/* <Route path="/auth/emailverified" element={<EmailVerified />} /> */}
-        {/* <Route path="/auth/newpassword" element={}/> */}
+    <Routes>
+      <Route path="/auth">
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
 
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </>
+        <Route
+          path="register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="forgotpassword"
+          element={
+            <PublicRoute>
+              <ForgotPassword />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="checkyouremail"
+          element={
+            <PublicRoute>
+              <CheckYourEmail />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="checkyouremail"
+          element={
+            <PublicRoute>
+              <EmailVerified />
+            </PublicRoute>
+          }
+        />
+      </Route>
+
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   );
 }
 

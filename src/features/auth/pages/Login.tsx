@@ -11,17 +11,19 @@ import ImageSide from "../components/organism/ImageSide";
 import { useState } from "react";
 import AuthHeader from "../components/molecules/AuthHeader";
 import { loginAction } from "../utils/authActions";
+import ServerError from "../components/atoms/ServerError";
 
 export default function Login() {
+  // ui data
   const heading = {
     mainHead: "Log in",
     secHead: "Don’t have an acount? ",
     spanHead: "Sign up",
   };
   const emailOrPhoneData: InputType = {
-    name: "emailOrPhone",
-    type: "text",
-    placeholder: "Email or phone number",
+    name: "email",
+    type: "email",
+    placeholder: "Email",
   };
   const passwordData: InputType = {
     name: "password",
@@ -33,13 +35,14 @@ export default function Login() {
     heading2: "Find your next home with ease",
     images: [LoginOne, LoginTwo, LoginThree],
   };
+
+  // state management
   const initialError = {
-    emailOrPhone: false,
+    email: false,
     password: false,
   };
   const navigate = useNavigate();
-
-  const [form, setForm] = useState({ emailOrPhone: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState(initialError);
   const [serverError, setServerError] = useState<string[]>([]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,19 +52,19 @@ export default function Login() {
       [e.target.name]: false,
     }));
   };
+
+  // handle Function
   const handleSubmit = async (e: React.FormEvent) => {
     setServerError([]);
-
     e.preventDefault();
     const newErrors = {
-      emailOrPhone: !form.emailOrPhone,
+      email: !form.email,
       password: !form.password,
     };
     setError(newErrors);
-    if (!form.emailOrPhone || !form.password) return;
-    console.log("email", form.emailOrPhone);
-    console.log("password", form.password);
-    const res = await loginAction(form.emailOrPhone, form.password);
+    if (!form.email || !form.password) return;
+    // Logging in
+    const res = await loginAction(form.email, form.password);
     if (res.success) {
       console.log(res.message);
       navigate("/");
@@ -83,9 +86,9 @@ export default function Login() {
             className=" mt-[3.875rem] space-y-6"
           >
             <MainLabelAndInput
-              hasError={error.emailOrPhone}
+              hasError={error.email}
               handleChange={handleChange}
-              label="Email or phone number"
+              label="Email"
               inputData={emailOrPhoneData}
             />
             <div className="max-w-[28.125rem]">
@@ -102,14 +105,7 @@ export default function Login() {
                 Forget your password
               </Link>
             </div>
-            <div>
-              {serverError.length > 0 &&
-                serverError.map((message, index) => (
-                  <div key={index} className="text-xs text-error">
-                    {message}
-                  </div>
-                ))}
-            </div>
+            <ServerError serverError={serverError} />
             <div className="text-center">
               <MainButton type="submit" buttonName="log in" />
             </div>

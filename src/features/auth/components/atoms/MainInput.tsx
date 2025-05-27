@@ -20,7 +20,7 @@ const MainInput = ({
         onChange={handleChange}
         name={name}
       />
-      {inputData.name === "password" && (
+      {name === "password" && (
         <img
           onClick={() => setHiddenPassword(!hiddenPassword)}
           src={Eye}

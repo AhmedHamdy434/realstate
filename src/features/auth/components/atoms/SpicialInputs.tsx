@@ -21,6 +21,7 @@ const SpecialInputs = ({ code, setCode }: VerificationCodeInputProps) => {
       if (index > 0) inputsRef.current[index - 1]?.focus();
     }
   };
+
   return (
     <div className="flex my-10 px-4 max-w-3xl justify-between space-x-2 md:space-x-5">
       {Array(6)

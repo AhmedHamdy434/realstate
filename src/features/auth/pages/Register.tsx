@@ -11,8 +11,10 @@ import ImageSide from "../components/organism/ImageSide";
 import AuthHeader from "../components/molecules/AuthHeader";
 import { useNavigate } from "react-router-dom";
 import { registerAction } from "../utils/authActions";
+import ServerError from "../components/atoms/ServerError";
 
 export default function Register() {
+  // ui data
   const heading = {
     mainHead: "Create an account",
     secHead: "Already have an account? ",
@@ -42,11 +44,14 @@ export default function Register() {
     email: false,
     password: false,
   };
+
+  // state management
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", name: "", password: "" });
   const [error, setError] = useState(initialError);
   const [serverError, setServerError] = useState<string[]>([]);
 
+  // handle function
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError((prevError) => ({
@@ -54,7 +59,6 @@ export default function Register() {
       [e.target.name]: false,
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     setServerError([]);
     e.preventDefault();
@@ -63,13 +67,9 @@ export default function Register() {
       email: !form.email,
       password: !form.password,
     };
-
     setError(newErrors);
-
     if (!form.name || !form.email || !form.password) return;
-    console.log("email", form.email);
-    console.log("name", form.name);
-    console.log("password", form.password);
+    // sign up
     const res = await registerAction(form.email, form.name, form.password);
     if (res.success) {
       console.log(res.message);
@@ -110,14 +110,7 @@ export default function Register() {
                 inputData={passwordData}
               />
             </div>
-            <div>
-              {serverError.length > 0 &&
-                serverError.map((message, index) => (
-                  <div key={index} className="text-xs text-error">
-                    {message}
-                  </div>
-                ))}
-            </div>
+            <ServerError serverError={serverError} />
             <div className="text-center mt-5">
               <MainButton type="submit" buttonName="Sign Up" />
             </div>

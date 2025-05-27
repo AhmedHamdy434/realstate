@@ -3,6 +3,9 @@ import FacebookLogo from "../../../../assets/auth/facebookLogo.png";
 import MailLogo from "../../../../assets/auth/mail.png";
 
 const SocialLogos = () => {
+  const handleGoogleClick = async () => {
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/auth/google`;
+  };
   return (
     <div className="text-center pt-[2.625rem]">
       <h6 className="text-xl mb-[3.375rem] text-text2">Or</h6>
@@ -11,6 +14,7 @@ const SocialLogos = () => {
           <button
             key={index}
             className="w-[5.625rem] h-[5.625rem] rounded-full border-[1px] flex justify-center items-center"
+            onClick={index === 0 ? handleGoogleClick : () => console.log(index)}
           >
             <img src={logo} alt="logo" width={44} height={44} />
           </button>
