@@ -5,12 +5,12 @@ import LoginThree from "../../../assets/auth/login3.png";
 import FormHeading from "../components/atoms/FormHeading";
 import MainLabelAndInput from "../components/molecules/MainLabelAndInput";
 import { type InputType } from "../types/authTypes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogos from "../components/molecules/SocialLogos";
 import ImageSide from "../components/organism/ImageSide";
 import { useState } from "react";
 import AuthHeader from "../components/molecules/AuthHeader";
-// import { axiosInstance } from "../../../axios/config";
+import { loginAction } from "../utils/authActions";
 
 export default function Login() {
   const heading = {
@@ -37,13 +37,11 @@ export default function Login() {
     emailOrPhone: false,
     password: false,
   };
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({ emailOrPhone: "", password: "" });
   const [error, setError] = useState(initialError);
-  // const [serverError, setServerError] = useState<ErrorType>({
-  //   success: true,
-  //   message: "",
-  // });
+  const [serverError, setServerError] = useState<string[]>([]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError((prevError) => ({
@@ -52,6 +50,8 @@ export default function Login() {
     }));
   };
   const handleSubmit = async (e: React.FormEvent) => {
+    setServerError([]);
+
     e.preventDefault();
     const newErrors = {
       emailOrPhone: !form.emailOrPhone,
@@ -59,54 +59,16 @@ export default function Login() {
     };
     setError(newErrors);
     if (!form.emailOrPhone || !form.password) return;
-
     console.log("email", form.emailOrPhone);
     console.log("password", form.password);
-    // navigate("/");
-
-    //   const res = await axiosInstance.post(
-    //     "/auth/Login",
-    //     {
-    //       email: form.emailOrPhone, // Assuming it is email
-    //       password: form.password,
-    //     },
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   ).then(function (response) {
-    //     console.log(response ,"Logged in successfully");
-    //     navigate("/");
-    //   }).catch (err: any) {
-    //   // ⛔ Axios returns errors in `err.response`
-    //   const res = err.response;
-
-    //   if (res?.data?.errors) {
-    //     const backendErrors = res.data.errors;
-
-    //     setError({
-    //       emailOrPhone: !!backendErrors.email,
-    //       password: !!backendErrors.password,
-    //     });
-
-    //     setServerError(backendErrors); // This is for displaying full message if needed
-    //   } else {
-    //     console.log(res?.data?.message || "Something went wrong");
-    //   }
-    // }
+    const res = await loginAction(form.emailOrPhone, form.password);
+    if (res.success) {
+      console.log(res.message);
+      navigate("/");
+    } else {
+      setServerError(res.message);
+    }
   };
-  // const handleLogin = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  // axiosInstance.post()
-  // const res = await fetch("http://localhost:5000/api/login", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({ email, password }),
-  // });
-  // const data = await res.json();
-  // console.log(data);
-  // };
 
   return (
     <>
@@ -139,6 +101,14 @@ export default function Login() {
               >
                 Forget your password
               </Link>
+            </div>
+            <div>
+              {serverError.length > 0 &&
+                serverError.map((message, index) => (
+                  <div key={index} className="text-xs text-error">
+                    {message}
+                  </div>
+                ))}
             </div>
             <div className="text-center">
               <MainButton type="submit" buttonName="log in" />

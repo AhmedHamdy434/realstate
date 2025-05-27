@@ -9,7 +9,8 @@ import type { InputType } from "../types/authTypes";
 import SocialLogos from "../components/molecules/SocialLogos";
 import ImageSide from "../components/organism/ImageSide";
 import AuthHeader from "../components/molecules/AuthHeader";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { registerAction } from "../utils/authActions";
 
 export default function Register() {
   const heading = {
@@ -41,13 +42,10 @@ export default function Register() {
     email: false,
     password: false,
   };
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", name: "", password: "" });
   const [error, setError] = useState(initialError);
-  // const [serverError, setServerError] = useState<ErrorType>({
-  //   success: true,
-  //   message: "",
-  // });
+  const [serverError, setServerError] = useState<string[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -57,12 +55,12 @@ export default function Register() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    setServerError([]);
     e.preventDefault();
     const newErrors = {
       name: !form.name,
       email: !form.email,
-
       password: !form.password,
     };
 
@@ -72,7 +70,13 @@ export default function Register() {
     console.log("email", form.email);
     console.log("name", form.name);
     console.log("password", form.password);
-    // navigate("/")
+    const res = await registerAction(form.email, form.name, form.password);
+    if (res.success) {
+      console.log(res.message);
+      navigate("/auth/checkyouremail");
+    } else {
+      setServerError(res.message);
+    }
   };
 
   return (
@@ -105,6 +109,14 @@ export default function Register() {
                 label="Password"
                 inputData={passwordData}
               />
+            </div>
+            <div>
+              {serverError.length > 0 &&
+                serverError.map((message, index) => (
+                  <div key={index} className="text-xs text-error">
+                    {message}
+                  </div>
+                ))}
             </div>
             <div className="text-center mt-5">
               <MainButton type="submit" buttonName="Sign Up" />

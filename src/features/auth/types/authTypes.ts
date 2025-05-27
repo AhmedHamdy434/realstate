@@ -26,11 +26,16 @@ export type ErrorType = {
   message: string;
 };
 export type ErrorRegisterType = {
-  name: boolean;
-  email: boolean;
-  password: boolean;
+  name: string;
+  email: string;
+  password: string;
 };
 export type ErrorLoginType = {
   emailOrPhone: boolean;
   password: boolean;
+};
+export type errorPathType = "userName" | "email" | "password";
+export type AuthResponseType = {
+  success: boolean;
+  message: string[];
 };
