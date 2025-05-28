@@ -7,6 +7,7 @@ import CheckYourEmail from "../features/auth/pages/CheckYourEmail";
 import EmailVerified from "../features/auth/pages/EmailVerified";
 import HomePage from "./pages/HomePage";
 import { PublicRoute } from "./routes/PublicRoute";
+import SocialCallback from "../features/auth/pages/SocialCallback";
 // import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 function App() {
@@ -53,6 +54,14 @@ function App() {
           element={
             <PublicRoute>
               <EmailVerified />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="callback"
+          element={
+            <PublicRoute>
+              <SocialCallback />
             </PublicRoute>
           }
         />
