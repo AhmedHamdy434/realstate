@@ -7,7 +7,7 @@ import CheckYourEmail from "../features/auth/pages/CheckYourEmail";
 import EmailVerified from "../features/auth/pages/EmailVerified";
 import HomePage from "./pages/HomePage";
 import { PublicRoute } from "./routes/PublicRoute";
-import { ProtectedRoute } from "./routes/ProtectedRoute";
+// import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 function App() {
   return (
@@ -49,7 +49,7 @@ function App() {
           }
         />
         <Route
-          path="checkyouremail"
+          path="emailverifing/:activationToken"
           element={
             <PublicRoute>
               <EmailVerified />
@@ -58,14 +58,7 @@ function App() {
         />
       </Route>
 
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute>
-            <HomePage />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/" element={<HomePage />} />
     </Routes>
   );
 }

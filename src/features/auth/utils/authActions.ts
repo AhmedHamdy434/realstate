@@ -18,10 +18,6 @@ export const registerAction = async (
       password,
       phone,
     });
-
-    const token = response.data.token;
-    store.dispatch(setToken(token));
-
     return {
       success: true,
       message: [response.data.message],
@@ -91,6 +87,8 @@ export const verifyEmailAction = async (
   }
 };
 
+// set new password
+
 export const newPasswordAction = async (
   email: string,
   newPassword: string
@@ -111,9 +109,32 @@ export const newPasswordAction = async (
   }
 };
 
+// google
+
 export const googleAction = async (): Promise<AuthResponseType> => {
   try {
     const response = await axiosInstance.get("/auth/google");
+
+    const token = response.data.token;
+    store.dispatch(setToken(token));
+
+    return {
+      success: true,
+      message: [response.data.message],
+    };
+  } catch (err: any) {
+    return err;
+  }
+};
+
+// activate account
+export const getNewTokenAction = async (
+  activationToken: string
+): Promise<AuthResponseType> => {
+  try {
+    const response = await axiosInstance.get(
+      `/auth/activate/${activationToken}`
+    );
 
     const token = response.data.token;
     store.dispatch(setToken(token));
