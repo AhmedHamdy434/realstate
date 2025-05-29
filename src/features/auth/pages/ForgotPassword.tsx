@@ -48,12 +48,12 @@ const ForgotPassword = () => {
   const inputPasswordData: InputType = {
     name: "password",
     type: "password",
-    placeholder: "password",
+    placeholder: "Password",
   };
   const inputConfirmPasswordData: InputType = {
     name: "password",
     type: "password",
-    placeholder: "confirm password",
+    placeholder: "confirm Password",
   };
   const newPasswordHeading = {
     heading: "Enter New Password",
@@ -184,13 +184,13 @@ const ForgotPassword = () => {
           <div className="mt-6 mb-[3.5rem] mx-auto max-w-[28.125rem] space-y-4">
             <MainLabelAndInput
               hasError={error}
-              label="password"
+              label="Password"
               inputData={inputPasswordData}
               handleChange={handleChangeNewPassword}
             />
             <MainLabelAndInput
               hasError={false}
-              label="password"
+              label="Password Confirmation"
               inputData={inputConfirmPasswordData}
               handleChange={handleChangeConfirmNewPassword}
             />
