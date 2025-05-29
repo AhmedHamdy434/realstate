@@ -16,13 +16,10 @@ axiosInstance.interceptors.request.use(
 );
 axiosInstance.interceptors.response.use(
   (response) => {
-    console.log(response, response.data.message);
     return response;
   },
   (error) => {
     const res = error?.response;
-    console.log(res);
-
     if (!res) {
       return Promise.reject({
         success: false,

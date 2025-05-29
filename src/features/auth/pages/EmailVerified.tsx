@@ -15,7 +15,7 @@ const EmailVerified = () => {
   const verifiedHeading = {
     heading: "Email verified",
     paragraphs: [
-      "Your password has been successfully reset.",
+      "Your email has been successfully verified.",
       "Click below to log in magically.",
     ],
   };
@@ -27,17 +27,11 @@ const EmailVerified = () => {
         setError("Activation token is missing.");
         return;
       }
-
       const res = await getNewTokenAction(activationToken);
-      if (res.success) {
-        console.log(res.message);
-      } else {
-        console.log(res.message);
+      if (!res.success)
         setError(Array.isArray(res.message) ? res.message[0] : res.message);
-      }
       setIsLoading(false);
     };
-
     getNewToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

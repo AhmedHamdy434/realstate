@@ -30,10 +30,6 @@ const HomePage = () => {
           handleClick={() => navigate("/auth/login")}
         />
       )}
-      <MainButton
-        buttonName="console"
-        handleClick={() => console.log(user, token)}
-      />
     </>
   );
 };

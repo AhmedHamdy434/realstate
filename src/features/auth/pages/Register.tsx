@@ -72,7 +72,6 @@ export default function Register() {
     // sign up
     const res = await registerAction(form.email, form.name, form.password);
     if (res.success) {
-      console.log(res.message);
       localStorage.setItem("email", form.email);
       navigate("/auth/checkyouremail");
     } else {

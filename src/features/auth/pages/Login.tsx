@@ -65,10 +65,8 @@ export default function Login() {
     if (!form.email || !form.password) return;
     // Logging in
     const res = await loginAction(form.email, form.password);
-    if (res.success) {
-      console.log(res.message);
-      navigate("/");
-    } else {
+    if (res.success) navigate("/");
+    else {
       setServerError(res.message);
     }
   };

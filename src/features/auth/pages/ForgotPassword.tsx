@@ -82,10 +82,8 @@ const ForgotPassword = () => {
       return;
     }
     const res = await forgotPasswordAction(email);
-    if (res.success) {
-      console.log(res.message);
-      setPage(1);
-    } else {
+    if (res.success) setPage(1);
+    else {
       setServerError(res.message);
     }
   };
@@ -96,10 +94,8 @@ const ForgotPassword = () => {
     const verrificationCode = code.join("");
     if (verrificationCode.length === 6) {
       const res = await verifyEmailAction(verrificationCode);
-      if (res.success) {
-        console.log(res.message);
-        setPage(2);
-      } else {
+      if (res.success) setPage(2);
+      else {
         setServerError(res.message);
       }
     }
@@ -122,10 +118,8 @@ const ForgotPassword = () => {
       return;
     } else {
       const res = await newPasswordAction(email, password);
-      if (res.success) {
-        console.log(res.message);
-        setPage(3);
-      } else {
+      if (res.success) setPage(3);
+      else {
         setServerError(res.message);
       }
     }
