@@ -8,7 +8,6 @@ import { getNewTokenAction } from "../utils/authActions";
 
 const EmailVerified = () => {
   const { activationToken } = useParams();
-  console.log(activationToken);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -23,18 +22,25 @@ const EmailVerified = () => {
 
   useEffect(() => {
     const getNewToken = async () => {
-      if (!activationToken) return;
+      if (!activationToken) {
+        setIsLoading(false);
+        setError("Activation token is missing.");
+        return;
+      }
+
       const res = await getNewTokenAction(activationToken);
       if (res.success) {
         console.log(res.message);
       } else {
         console.log(res.message);
-        setError(res.message[0]);
+        setError(Array.isArray(res.message) ? res.message[0] : res.message);
       }
       setIsLoading(false);
     };
+
     getNewToken();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

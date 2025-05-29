@@ -7,6 +7,7 @@
   --borderColor: rgba(190, 190, 190, 0.5);
   --backgroundGrey: rgba(217, 217, 217, 0.26);
   --text2: rgba(102, 102, 102, 0.5);
+  --maingray: rgba(102, 102, 102, 1);
   --error: red;
 }
 
@@ -20,6 +21,7 @@
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
   --color-main: var(--main);
+  --color-maingray: var(--maingray);
   --color-borderColor: var(--borderColor);
   --color-backgroundGrey: var(--backgroundGrey);
   --color-text2: var(--text2);
