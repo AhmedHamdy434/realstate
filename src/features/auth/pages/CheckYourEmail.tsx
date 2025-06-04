@@ -13,7 +13,7 @@ const CheckYourEmail = () => {
   return (
     <>
       <AuthHeader />
-      <div className="w-full text-center max-w-3xl mx-auto py-[7.875rem]">
+      <div className="w-full text-center max-w-3xl mx-auto py-31.5">
         <ForgotPasswordHeading text={emailVerifiedHeading} />
         <BackLink goto="/auth/login" value="Back to log in" />
       </div>

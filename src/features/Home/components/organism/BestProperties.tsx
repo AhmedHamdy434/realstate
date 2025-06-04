@@ -38,12 +38,12 @@ const BestProperties = () => {
 
   return (
     <div className="container">
-      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-end pt-[7.75rem] mb-12">
+      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-end pt-31 mb-12">
         <div className="text">
           <h3 className="text-5xl text-main font-semibold leading-14 tracking-[0.5px] mb-4">
             Best Properties
           </h3>
-          <p className="text-maingray leading-[1.625rem] tracking-[0.25%]">
+          <p className="text-maingray leading-6.5 tracking-[0.25%]">
             Discover our exclusive selection of the finest one-of-a-kind{" "}
             <br className="hidden md:block" />
             luxury properties architectural masterpieces.
@@ -51,7 +51,7 @@ const BestProperties = () => {
         </div>
         <Link
           to="/"
-          className="flex px-6 py-3 gap-2 items-center min-w-[11.5rem] ms-auto text-lg text-main font-medium leading-[1.625rem] tracking-[0.5px]"
+          className="flex px-6 py-3 gap-2 items-center min-w-46 ms-auto text-lg text-main font-medium leading-6.5 tracking-[0.5px]"
         >
           <span>Learn More</span>
           <img
@@ -61,7 +61,7 @@ const BestProperties = () => {
           />
         </Link>
       </div>
-      <div className="cards grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[2.125rem] mb-[11.625rem]">
+      <div className="cards grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8.5 mb-46.5">
         {propsDetails.map((propDetails) => (
           <PropertiesCard key={propDetails.image} details={propDetails} />
         ))}
@@ -71,14 +71,3 @@ const BestProperties = () => {
 };
 
 export default BestProperties;
-/*
-
-
-
-
-
-
-
-
-
-*/

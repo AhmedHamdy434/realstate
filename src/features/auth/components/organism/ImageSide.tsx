@@ -3,7 +3,7 @@ import type { ImageSideType } from "../../types/authTypes";
 const ImageSide = ({ imageSide }: { imageSide: ImageSideType }) => {
   const { heading1, heading2, images } = imageSide;
   return (
-    <div className="relative -left-4 w-[54%] hidden bg-backgroundGrey py-[9.1875rem] flex-col gap-10 items-center rounded-[1.875rem] lg:flex">
+    <div className="relative -left-4 w-[54%] hidden bg-backgroundGrey py-37 flex-col gap-10 items-center rounded-[1.875rem] lg:flex">
       <h3 className="text-main text-[2rem] font-semibold text-center">
         {heading1}
         {heading2 && (

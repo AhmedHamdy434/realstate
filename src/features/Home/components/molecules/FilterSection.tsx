@@ -24,7 +24,7 @@ const FilterSection = () => {
 
   return (
     <>
-      <div className="rec-type w-fit xl:ps-3 rounded-4xl flex gap-1 p-2 bg-rgba(255,255,255,0.65) border-[1px] border-[rgba(217,217,217,1)] backdrop-blur-2xl">
+      <div className="rec-type w-fit xl:ps-3 rounded-4xl flex gap-1 p-2 bg-rgba(255,255,255,0.65) border border-[rgba(217,217,217,1)] backdrop-blur-2xl">
         {typesofSearch.map((typeofSearch) => (
           <button
             key={typeofSearch}

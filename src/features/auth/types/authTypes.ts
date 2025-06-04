@@ -21,3 +21,7 @@ export type VerificationCodeInputProps = {
   code: string[];
   setCode: React.Dispatch<React.SetStateAction<string[]>>;
 };
+export type AuthResponseType = {
+  success: boolean;
+  message: string[];
+};

@@ -10,7 +10,7 @@ const MainButton = ({
   return (
     <button
       type={type ? type : "button"}
-      className="bg-main w-[17rem] h-[3.0625rem] rounded-[1.25rem] font-medium text-lg align-middle text-center text-white"
+      className="bg-main w-68 h-12 rounded-[1.25rem] font-medium text-lg align-middle text-center text-white"
       onClick={handleClick}
     >
       {buttonName}

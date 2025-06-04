@@ -36,7 +36,7 @@ const SpecialInputs = ({ code, setCode }: VerificationCodeInputProps) => {
               inputsRef.current[index] = el!;
             }}
             onChange={(e) => handleChange(e, index)}
-            className="aspect-square min-w-[2.5rem] max-w-[5.625rem] text-center border-[3px] border-text2 rounded-[1.25rem] text-3xl sm:text-5xl"
+            className="aspect-square min-w-10 max-w-22.5 text-center border-[3px] border-text2 rounded-[1.25rem] text-3xl sm:text-5xl"
           />
         ))}
     </div>

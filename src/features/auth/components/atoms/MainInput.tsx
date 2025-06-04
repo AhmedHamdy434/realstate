@@ -15,7 +15,7 @@ const MainInput = ({
     <div className="relative w-full max-w-[28.125rem]">
       <input
         type={hiddenPassword ? type : "text"}
-        className="h-[3.5rem] w-full rounded-xl border-[1px] border-text2 ps-4 text-xl leading-5 tracking-[-2%] placeholder:text-text2"
+        className="h-14 w-full rounded-xl border border-text2 ps-4 text-xl leading-5 tracking-[-2%] placeholder:text-text2"
         placeholder={placeholder}
         onChange={handleChange}
         name={name}

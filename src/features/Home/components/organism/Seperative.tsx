@@ -5,20 +5,20 @@ import Subtract from "../../../../assets/Subtract.png";
 const Seperative = () => {
   return (
     <div className="bg-main relative">
-      <div className="container flex justify-between items-center min-h-[11.25rem]">
+      <div className="container flex justify-between items-center min-h-45">
         <img
           src={GrayRectangle}
           alt="Rec"
           loading="lazy"
-          className="hidden lg:block max-w-[33.75rem]"
+          className="hidden lg:block max-w-135"
         />
         <img
           src={SeperatorImage}
           alt="seperator image"
           loading="lazy"
-          className="absolute hidden lg:block max-w-[33.75rem] bottom-0 ps-[2.875rem]"
+          className="absolute hidden lg:block max-w-135 bottom-0 ps-11.5"
         />
-        <div className="max-w-[22rem]">
+        <div className="max-w-88">
           <h3
             className="text-[1.75rem] font-black text-transparent bg-[linear-gradient(92.27deg,_#FFFFFF_1.9%,_rgba(255,255,255,0.7)_21.4%,_#FFFFFF_72.48%)]
            bg-clip-text leading-[120%] uppercase mb-5"

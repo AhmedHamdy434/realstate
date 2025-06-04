@@ -5,7 +5,7 @@ const PropertiesCard = ({ details }: { details: PropDetailsType }) => {
   const { image, city, country, price, currency, area, type } = details;
 
   return (
-    <div className="p-4 border-[1px] border-[rgba(222,220,218,1)] leading-[1.625rem] tracking-[-0.25%]">
+    <div className="p-4 border border-[rgba(222,220,218,1)] leading-6.5 tracking-[-0.25%]">
       <img
         src={image}
         alt="card image"
@@ -14,7 +14,7 @@ const PropertiesCard = ({ details }: { details: PropDetailsType }) => {
       />
       <h4 className="text-title text-2xl font-semibold mb-2">{city}</h4>
       <span className="block text-lighttext mb-4">{country}</span>
-      <div className="flex flex-col gap-2 xs:flex-row justify-between xs:items-center mb-[1.75rem]">
+      <div className="flex flex-col gap-2 xs:flex-row justify-between xs:items-center mb-7">
         <span className="block text-main text-2xl font-semibold leading-8">
           {price} {currency}
         </span>

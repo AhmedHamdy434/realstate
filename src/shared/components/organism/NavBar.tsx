@@ -37,7 +37,7 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
     <>
       <div className="bg-red-500 w-10 h-10 lg:hidden"></div>
       <nav className="hidden text-lg leading-6.5 tracking-[0.5px] lg:flex items-center gap-8 xl:gap-[4.5rem]">
-        <div className="links flex justify-between items-center gap-6 xlgap-12 h-[2.5rem]">
+        <div className="links flex justify-between items-center gap-6 xlgap-12 h-10">
           {navBarItems.map(({ name, goto }) =>
             name === currentPage ? (
               <div

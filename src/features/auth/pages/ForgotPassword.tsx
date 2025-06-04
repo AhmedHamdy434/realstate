@@ -130,9 +130,9 @@ const ForgotPassword = () => {
       <AuthHeader />
       {/* page 0 */}
       {page === 0 && (
-        <div className="w-[98%] text-center max-w-3xl mx-auto py-[7.875rem]">
+        <div className="w-[98%] text-center max-w-3xl mx-auto py-31.5">
           <ForgotPasswordHeading text={forgotPasswordHeading} />
-          <div className="mt-6 mb-[3.5rem] mx-auto max-w-[28.125rem] ">
+          <div className="mt-6 mb-14 mx-auto max-w-112.5">
             <MainLabelAndInput
               hasError={error}
               label="Email"

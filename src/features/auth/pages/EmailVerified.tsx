@@ -43,7 +43,7 @@ const EmailVerified = () => {
         (error ? (
           <h2>{error}</h2>
         ) : (
-          <div className="w-full text-center max-w-3xl mx-auto py-[5.625rem]">
+          <div className="w-full text-center max-w-3xl mx-auto py-22.5">
             <img
               src={VerifiedMark}
               alt="Verified"
@@ -51,7 +51,7 @@ const EmailVerified = () => {
               height={209}
               className="mx-auto mb-7"
             />
-            <div className="mb-[2.375rem]">
+            <div className="mb-9.5">
               <ForgotPasswordHeading text={verifiedHeading} />
             </div>
             <MainButton

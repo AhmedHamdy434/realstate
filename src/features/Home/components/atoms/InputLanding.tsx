@@ -14,15 +14,3 @@ const InputLanding = ({ data }: { data: LandingDataType }) => {
 };
 
 export default InputLanding;
-/*
-font-family: Poppins;
-font-weight: 400;
-font-size: 18px;
-line-height: 26px;
-letter-spacing: 0.25%;
-
-
-background: rgba(166, 166, 166, 1);
-
-
-*/

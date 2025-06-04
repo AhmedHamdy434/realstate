@@ -1,6 +1,6 @@
 const ServerError = ({ serverError }: { serverError: string[] }) => {
   return (
-    <div className="max-w-[25rem]">
+    <div className="max-w-100">
       {serverError.length > 0 &&
         serverError.map((message, index) => (
           <div key={index} className="text-xs text-error">

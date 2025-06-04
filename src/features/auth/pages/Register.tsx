@@ -23,9 +23,9 @@ export default function Register() {
   return (
     <>
       <AuthHeader />
-      <div className="flex items-center border-t-[1px] border-borderColor w-[93%] mx-auto">
+      <div className="flex items-center border-t border-borderColor w-[93%] mx-auto">
         <ImageSide imageSide={imageSideLogin} />
-        <div className="flex-1 flex flex-col items-center pt-[3.25rem] lg:pt-0 max-w-full">
+        <div className="flex-1 flex flex-col items-center pt-13 lg:pt-0 max-w-full">
           <FormHeading heading={heading} />
           <RegisterForm />
           <SocialLogos />

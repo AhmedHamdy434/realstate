@@ -53,10 +53,7 @@ const LoginForm = () => {
     }
   };
   return (
-    <form
-      onSubmit={(e) => handleSubmit(e)}
-      className=" mt-[3.875rem] space-y-6"
-    >
+    <form onSubmit={(e) => handleSubmit(e)} className=" mt-15.5 space-y-6">
       <MainLabelAndInput
         hasError={error.email}
         handleChange={handleChange}

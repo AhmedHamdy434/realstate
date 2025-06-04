@@ -9,7 +9,7 @@ const ClientCard = ({ data }: { data: ClientDataType }) => {
         scrollbarWidth: "none",
         msOverflowStyle: "none",
       }}
-      className="min-w-[30.5rem] p-[1.875rem] rounded-lg border border-lighttext space-y-5 leading-[140%]"
+      className="min-w-122 p-7.5 rounded-lg border border-lighttext space-y-5 leading-[140%]"
     >
       <div className="flex gap-5 items-center">
         <img src={image} alt={name} className="w-[5.5rem]" />

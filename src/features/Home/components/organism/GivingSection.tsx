@@ -59,7 +59,7 @@ const GivingSection = () => {
               className="box space-y-4 bg-[rgba(245,245,245,1)] p-5 "
             >
               <img src={icon} alt={heading} loading="lazy" />
-              <h5 className="leading-[2.375rem] text-maingray text-[1.75rem] font-bold">
+              <h5 className="leading-9.5 text-maingray text-[1.75rem] font-bold">
                 {heading}
               </h5>
               <p className="text-[rgba(115,120,140,1)] leading-[1.625rem]">
