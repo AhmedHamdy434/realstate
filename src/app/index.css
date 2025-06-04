@@ -2,12 +2,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 :root {
   --background: white;
+  --backgroundGrey: rgba(217, 217, 217, 0.26);
+  --backgroundSecond: rgba(238, 238, 238, 0.4);
   --foreground: black;
   --main: rgba(7, 13, 89, 1);
   --borderColor: rgba(190, 190, 190, 0.5);
-  --backgroundGrey: rgba(217, 217, 217, 0.26);
   --text2: rgba(102, 102, 102, 0.5);
   --maingray: rgba(102, 102, 102, 1);
+  --lighttext: rgba(166, 166, 166, 1);
+  --title: rgba(31, 39, 68, 1);
+  --black100: rgba(53, 58, 69, 1);
   --error: red;
 }
 
@@ -18,14 +22,20 @@
 }
 
 @theme {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-foreground);
+  --color-background: var(--background);
+  --color-backgroundGrey: var(--backgroundGrey);
+  --color-backgroundSecond: var(--backgroundSecond);
+  --color-foreground: var(--foreground);
   --color-main: var(--main);
   --color-maingray: var(--maingray);
   --color-borderColor: var(--borderColor);
-  --color-backgroundGrey: var(--backgroundGrey);
   --color-text2: var(--text2);
+  --color-lighttext: var(--lighttext);
+  --color-title: var(--title);
+  --color-black100: var(--black100);
   --color-error: var(--error);
+
+  --breakpoint-xs: 26rem;
 }
 
 body {
@@ -34,9 +44,15 @@ body {
 }
 .container {
   margin-inline: auto;
-  padding-inline: 0.625rem;
+  padding-inline: 1rem;
 }
-input:focus {
+@media (80rem < width <96rem) {
+  .container {
+    max-width: 76rem;
+  }
+}
+input:focus,
+textarea:focus {
   outline: none;
 }
 :root {
@@ -46,71 +62,3 @@ input:focus {
 button {
   cursor: pointer;
 }
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

@@ -13,10 +13,10 @@ const SocialLogos = () => {
         {[GoogleLogo, FacebookLogo, MailLogo].map((logo, index) => (
           <button
             key={index}
-            className="w-[5.625rem] h-[5.625rem] rounded-full border-[1px] flex justify-center items-center"
+            className="w-13 h-13 xs:w-[5.625rem] xs:h-[5.625rem] rounded-full border-[1px] flex justify-center items-center"
             onClick={index === 0 ? handleGoogleClick : () => console.log(index)}
           >
-            <img src={logo} alt="logo" width={44} height={44} />
+            <img src={logo} alt="logo" className="w-7 xs:w-11" />
           </button>
         ))}
       </div>

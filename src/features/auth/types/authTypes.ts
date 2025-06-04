@@ -21,21 +21,3 @@ export type VerificationCodeInputProps = {
   code: string[];
   setCode: React.Dispatch<React.SetStateAction<string[]>>;
 };
-export type ErrorType = {
-  success: boolean;
-  message: string;
-};
-export type ErrorRegisterType = {
-  name: string;
-  email: string;
-  password: string;
-};
-export type ErrorLoginType = {
-  emailOrPhone: boolean;
-  password: boolean;
-};
-export type errorPathType = "userName" | "email" | "password";
-export type AuthResponseType = {
-  success: boolean;
-  message: string[];
-};

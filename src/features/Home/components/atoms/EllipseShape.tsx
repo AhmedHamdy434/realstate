@@ -1,0 +1,9 @@
+const EllipseShape = ({ position }: { position: string }) => {
+  return (
+    <div
+      className={`w-[20.625rem] h-[29rem] rounded-[50%] bg-[rgba(102,102,102,0.18)] blur-[5.75rem] absolute top-0 ${position}`}
+    ></div>
+  );
+};
+
+export default EllipseShape;
