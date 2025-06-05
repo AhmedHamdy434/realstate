@@ -61,7 +61,11 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
           )}
         </div>
         <div className="profile space-x-2">
-          <RecButton buttonName="Sign in" colored={false} />
+          <RecButton
+            buttonName="Sign up"
+            colored={false}
+            handleClick={() => navigate("/auth/register")}
+          />
 
           <RecButton
             buttonName={token ? "Logout" : "Login"}
@@ -77,4 +81,3 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
 };
 
 export default NavBar;
-// w-[33.625rem]
