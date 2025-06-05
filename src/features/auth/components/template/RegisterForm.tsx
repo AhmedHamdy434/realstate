@@ -63,7 +63,10 @@ const RegisterForm = () => {
     }
   };
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className=" mt-15.5 space-y-6">
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      className="w-full xs:w-[70%] sm:w-112.5 mt-15.5 space-y-6"
+    >
       <MainLabelAndInput
         hasError={error.name}
         handleChange={handleChange}
@@ -76,7 +79,7 @@ const RegisterForm = () => {
         label="Email"
         inputData={emailData}
       />
-      <div className="max-w-112.5">
+      <div>
         <MainLabelAndInput
           hasError={error.password}
           handleChange={handleChange}

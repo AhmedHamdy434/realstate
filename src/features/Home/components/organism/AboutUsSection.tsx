@@ -47,8 +47,8 @@ const AboutUsSection = () => {
             />
             <span className="text-maingray text-7xl leading-20 mb-2">4.8</span>
             <div className="stars flex justify-center gap-1 mb-4">
-              {[Star, Star, Star, Star, Star].map((star) => (
-                <img src={star} alt="star" />
+              {[Star, Star, Star, Star, Star].map((star, index) => (
+                <img key={index} src={star} alt="star" />
               ))}
             </div>
             <span className="block mb-0.5 text-lighttext leading-6">

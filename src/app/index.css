@@ -41,12 +41,14 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-size: 1rem;
 }
+
 .container {
   margin-inline: auto;
   padding-inline: 1rem;
 }
-@media (80rem < width <96rem) {
+@media (80rem < width) {
   .container {
     max-width: 76rem;
   }

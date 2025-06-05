@@ -14,7 +14,6 @@ export default function Login() {
     secHead: "Don’t have an acount? ",
     spanHead: "Sign up",
   };
-
   const imageSideLogin = {
     heading1: "Welcome back!",
     heading2: "Find your next home with ease",
