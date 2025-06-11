@@ -7,24 +7,25 @@ const Landing = () => {
 
   return (
     <main className=" relative overflow-hidden bg-backgroundSecond ">
-      <div className="contain max-w-360 mx-auto flex justify-between items-center pt-15 pb-14 text-center xl:text-start">
+      <div className="contain max-w-360 mx-auto flex flex-col-reverse lg:flex-row justify-between px-8 lg:px-15 pt-4.5 pb-8 lg:py-11">
         {ellipses.map((ellipse) => (
           <EllipseShape key={ellipse} position={ellipse} />
         ))}
-        <div className="landing-text relative z-20 w-[95%] lg:w-[80%] mx-auto xl:mx-0 xl:max-w-204 xl:ps-13">
-          <h1 className="text-[14vw] sm:text-[5.5rem] text-main font-black leading-[120%] tracking-[2%] uppercase mb-6">
+        <div className="landing-text flex-1 relative z-20 lg:w-130 xl:w-full xl:max-w-204 pt-8 lg:pt-0">
+          <h1 className="text-[2rem] xs:text-[3rem] lg:text-[5.5rem] text-main font-black lg:leading-[120%] tracking-[2%] uppercase mb-4 lg:mb-6">
             The house
-            <br /> of your
-            <br /> <span className="text-[rgba(0,0,0,0.53)]">dreams</span>
+            <br className="sm:hidden lg:block" /> of your
+            <br className="sm:hidden lg:block" />
+            <span className="text-[rgba(0,0,0,0.53)]"> dreams</span>
           </h1>
-          <p className="xl:max-w-152 text-maingray sm:text-xl leading-6 tracking-[0.25%] mb-16.5">
+          <p className="xl:w-152 text-sm text-maingray sm:text-xl leading-6 tracking-[0.25%] mb-8.5 lg:mb-12">
             Explore our range of beautiful properties that allows you to reduce
             your energy consumption as well as your carbon footprint.
           </p>
           <FilterSection />
         </div>
         <img
-          className="max-w-148 hidden xl:block relative end-21"
+          className="w-full max-w-120 mx-auto lg:mx-0 aspect-[.9] sm:aspect-[1.2] lg:aspect-auto md:max-w-138 relative lg:end-16"
           src={LandingImage}
           alt="Landing Image"
         />

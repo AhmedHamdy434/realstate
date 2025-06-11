@@ -4,19 +4,19 @@ import Subtract from "../../../../assets/Subtract.png";
 
 const Seperative = () => {
   return (
-    <div className="bg-main relative">
+    <div className="bg-main hidden lg:block relative">
       <div className="container flex justify-between items-center min-h-45">
         <img
           src={GrayRectangle}
           alt="Rec"
           loading="lazy"
-          className="hidden lg:block max-w-135"
+          className="max-w-135"
         />
         <img
           src={SeperatorImage}
           alt="seperator image"
           loading="lazy"
-          className="absolute hidden lg:block max-w-135 bottom-0 ps-11.5"
+          className="absolute max-w-135 bottom-0 ps-11.5"
         />
         <div className="max-w-88">
           <h3

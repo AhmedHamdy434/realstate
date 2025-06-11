@@ -45,9 +45,9 @@ const GivingSection = () => {
     },
   ];
   return (
-    <div className="bg-[rgba(248,248,248,1)] pt-14 pb-19.5">
+    <div className="bg-[rgba(248,248,248,1)] pt-9.5 lg:pt-14 pb-8 lg:pb-19.5">
       <div className="container tracking-[0.5px]">
-        <h4 className="mb-12 text-main text-5xl font-semibold leading-14">
+        <h4 className="mb-7 lg:mb-12 text-main text-[2rem] lg:text-5xl font-semibold leading-14">
           Giving you peace
           <br />
           of mind

@@ -46,12 +46,12 @@ const ClientsSays = () => {
   };
 
   return (
-    <div className="relative py-29 mb-25">
+    <div className="relative pt-18.5 lg:py-29 mb-25">
       <StarIcon colored position="top-13.5 start-10" />
       <StarIcon colored={false} position="bottom-3 end-6" />
       <div className="container">
-        <div className="heading flex justify-between mb-19">
-          <h5 className="text-main text-xl xs:text-4xl font-bold sm:ps-7">
+        <div className="heading flex justify-between mb-10 lg:mb-19">
+          <h5 className="text-main text-2xl lg:text-4xl font-bold sm:ps-7">
             What clients says
           </h5>
           <div className="flex gap-2.5">

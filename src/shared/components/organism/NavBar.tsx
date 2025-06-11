@@ -3,6 +3,8 @@ import RecButton from "../atoms/RecButton";
 import { logout, type User } from "../../../features/auth/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../app/store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = ({ currentPage }: { currentPage: string }) => {
   const { token }: { user: User | null; token: string | null } = useSelector(
@@ -35,9 +37,11 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
   ];
   return (
     <>
-      <div className="bg-red-500 w-10 h-10 lg:hidden"></div>
-      <nav className="hidden text-lg leading-6.5 tracking-[0.5px] lg:flex items-center gap-8 xl:gap-[4.5rem]">
-        <div className="links flex justify-between items-center gap-6 xlgap-12 h-10">
+      <div className="lg:hidden me-5">
+        <FontAwesomeIcon className="w-5" icon={faBars} />
+      </div>
+      <nav className="flex-1 hidden text-lg leading-6.5 tracking-[0.5px] lg:flex items-center justify-between">
+        <div className="links flex justify-between items-center gap-6 xl:gap-12 h-10">
           {navBarItems.map(({ name, goto }) =>
             name === currentPage ? (
               <div

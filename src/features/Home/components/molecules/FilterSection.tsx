@@ -24,7 +24,7 @@ const FilterSection = () => {
 
   return (
     <>
-      <div className="rec-type w-fit xl:ps-3 rounded-4xl flex gap-1 p-2 bg-rgba(255,255,255,0.65) border border-[rgba(217,217,217,1)] backdrop-blur-2xl">
+      <div className="rec-type mx-auto lg:mx-0 w-fit xl:ps-3 rounded-4xl flex gap-1 p-2 bg-rgba(255,255,255,0.65) border border-[rgba(217,217,217,1)] backdrop-blur-2xl">
         {typesofSearch.map((typeofSearch) => (
           <button
             key={typeofSearch}
@@ -39,8 +39,11 @@ const FilterSection = () => {
           </button>
         ))}
       </div>
-      <div className="w-full flex flex-col md:flex-row justify-between gap-10 p-4 sm:p-8 relative bottom-1 bg-white shadow-[35px_35px_65px_0px_rgba(146,106,120,0.16)]">
-        <div className="flex-1 flex justify-between items-center">
+      <div
+        className="w-full max-w-60 sm:max-w-[100vw] mx-auto sm:mx-0 flex flex-col sm:flex-row justify-between items-center gap-7.5 sm:gap-10 lg:gap-0 xl:gap-7.5
+       px-10 py-12.5 sm:p-8 -m-1 bg-white shadow-[35px_35px_65px_0px_rgba(146,106,120,0.16)]"
+      >
+        <div className="flex-1 flex flex-col sm:flex-row gap-7.5 justify-between items-center">
           {inputLandingData.map((data) => (
             <InputLanding key={data.head} data={data} />
           ))}
