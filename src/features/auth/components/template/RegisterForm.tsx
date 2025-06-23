@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { InputType } from "../../types/authTypes";
-import { registerAction } from "../../utils/authActions";
+import {
+  isValidEmail,
+  isValidPhone,
+  registerAction,
+} from "../../utils/authActions";
 import MainLabelAndInput from "../molecules/MainLabelAndInput";
 import ServerError from "../atoms/ServerError";
 import MainButton from "../../../../shared/components/atoms/MainButton";
@@ -13,9 +17,9 @@ const RegisterForm = () => {
     placeholder: "Name",
   };
   const emailData: InputType = {
-    name: "email",
-    type: "email",
-    placeholder: "Email",
+    name: "emailOrPhone",
+    type: "text",
+    placeholder: "Email or phone number",
   };
   const passwordData: InputType = {
     name: "password",
@@ -24,13 +28,17 @@ const RegisterForm = () => {
   };
   const initialError = {
     name: false,
-    email: false,
+    emailOrPhone: false,
     password: false,
   };
 
   // state management
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", name: "", password: "" });
+  const [form, setForm] = useState({
+    emailOrPhone: "",
+    name: "",
+    password: "",
+  });
   const [error, setError] = useState(initialError);
   const [serverError, setServerError] = useState<string[]>([]);
 
@@ -48,18 +56,26 @@ const RegisterForm = () => {
     e.preventDefault();
     const newErrors = {
       name: !form.name,
-      email: !form.email,
+      emailOrPhone: !form.emailOrPhone,
       password: !form.password,
     };
     setError(newErrors);
-    if (!form.name || !form.email || !form.password) return;
+    if (!form.name || !form.emailOrPhone || !form.password) return;
     // sign up
-    const res = await registerAction(form.email, form.name, form.password);
-    if (res.success) {
-      localStorage.setItem("email", form.email);
-      navigate("/auth/checkyouremail");
+    const email = isValidEmail(form.emailOrPhone) ? form.emailOrPhone : "";
+    const phone = isValidPhone(form.emailOrPhone) ? form.emailOrPhone : "";
+    if (!email && !phone) {
+      setServerError(["Please enter a valid email or phone number"]);
     } else {
-      setServerError(res.message);
+      const res = await registerAction(email, phone, form.name, form.password);
+      if (res.success && email) {
+        navigate("/auth/checkyouremail");
+      } else if (res.success && phone) {
+        localStorage.setItem("phone", phone);
+        navigate("/auth/checkyouremail");
+      } else {
+        setServerError(res.message);
+      }
     }
   };
   return (
@@ -74,9 +90,9 @@ const RegisterForm = () => {
         inputData={NameData}
       />
       <MainLabelAndInput
-        hasError={error.email}
+        hasError={error.emailOrPhone}
         handleChange={handleChange}
-        label="Email"
+        label="Email or phone number"
         inputData={emailData}
       />
       <div>

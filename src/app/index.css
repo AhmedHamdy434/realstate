@@ -5,7 +5,7 @@
   --backgroundGrey: rgba(217, 217, 217, 0.26);
   --backgroundSecond: rgba(238, 238, 238, 0.4);
   --foreground: black;
-  --main: rgba(7, 13, 89, 1);
+  --main: rgb(7, 13, 89);
   --borderColor: rgba(190, 190, 190, 0.5);
   --text2: rgba(102, 102, 102, 0.5);
   --maingray: rgba(102, 102, 102, 1);
@@ -13,13 +13,21 @@
   --title: rgba(31, 39, 68, 1);
   --black100: rgba(53, 58, 69, 1);
   --error: red;
+  --primary1: rgba(59, 113, 254, 1);
+  --primary4: rgba(88, 194, 125, 1);
+  --neutrals1: rgba(20, 20, 22, 1);
+  --neutrals2: rgba(35, 38, 47, 1);
+  --neutrals4: rgba(119, 126, 144, 1);
+  --neutrals5: rgba(177, 181, 195, 1);
+  --neutrals6: rgba(230, 232, 236, 1);
+  --neutrals8: rgb(252, 252, 253);
 }
 
-.dark {
+/* .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
   --main: #024950;
-}
+} */
 
 @theme {
   --color-background: var(--background);
@@ -34,6 +42,14 @@
   --color-title: var(--title);
   --color-black100: var(--black100);
   --color-error: var(--error);
+  --color-primary1: var(--primary1);
+  --color-primary4: var(--primary4);
+  --color-neutrals1: var(--neutrals1);
+  --color-neutrals2: var(--neutrals2);
+  --color-neutrals4: var(--neutrals4);
+  --color-neutrals5: var(--neutrals5);
+  --color-neutrals6: var(--neutrals6);
+  --color-neutrals8: var(--neutrals8);
 
   --breakpoint-xs: 26rem;
 }
@@ -58,7 +74,7 @@ textarea:focus {
   outline: none;
 }
 :root {
-  font-family: Poppins, sans-serif;
+  /* font-family: Poppins, sans-serif; */
   font-weight: 400;
 }
 button {

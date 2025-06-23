@@ -6,7 +6,7 @@ const Landing = () => {
   const ellipses = ["left-o", "left-[35%]", "right-0 translate-x-[50%]"];
 
   return (
-    <main className=" relative overflow-hidden bg-backgroundSecond ">
+    <main className=" relative overflow-hidden bg-backgroundSecond">
       <div className="contain max-w-360 mx-auto flex flex-col-reverse lg:flex-row justify-between px-8 lg:px-15 pt-4.5 pb-8 lg:py-11">
         {ellipses.map((ellipse) => (
           <EllipseShape key={ellipse} position={ellipse} />

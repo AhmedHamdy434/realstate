@@ -3,7 +3,7 @@ import RecButton from "../../../../shared/components/atoms/RecButton";
 import InputLanding from "../atoms/InputLanding";
 
 const FilterSection = () => {
-  const typesofSearch = ["Buy", "Rent", "Sell"];
+  const typesofSearch = ["Buy", "Rent"];
   type SearchType = (typeof typesofSearch)[number];
   const [type, setType] = useState<SearchType>("Buy");
 
@@ -40,7 +40,7 @@ const FilterSection = () => {
         ))}
       </div>
       <div
-        className="w-full max-w-60 sm:max-w-[100vw] mx-auto sm:mx-0 flex flex-col sm:flex-row justify-between items-center gap-7.5 sm:gap-10 lg:gap-0 xl:gap-7.5
+        className="w-full max-w-60 sm:max-w-[100vw] lg:min-w-150 mx-auto sm:mx-0 flex flex-col sm:flex-row justify-between items-center gap-7.5 sm:gap-10 lg:gap-0 xl:gap-7.5
        px-10 py-12.5 sm:p-8 -m-1 bg-white shadow-[35px_35px_65px_0px_rgba(146,106,120,0.16)]"
       >
         <div className="flex-1 flex flex-col sm:flex-row gap-7.5 justify-between items-center">

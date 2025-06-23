@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Eye from "../../../../assets/auth/eye.png";
 import type { InputType } from "../../types/authTypes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const MainInput = ({
   inputData,
@@ -21,13 +22,10 @@ const MainInput = ({
         name={name}
       />
       {name === "password" && (
-        <img
+        <FontAwesomeIcon
+          icon={hiddenPassword ? faEyeSlash : faEye}
+          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer w-6"
           onClick={() => setHiddenPassword(!hiddenPassword)}
-          src={Eye}
-          alt="Eye"
-          width={24}
-          height={24}
-          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer"
         />
       )}
     </div>

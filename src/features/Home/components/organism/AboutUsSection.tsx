@@ -1,9 +1,10 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AbouUsImage from "../../../../assets/aboutus.png";
 import Star from "../../../../assets/Layer 2.svg";
-import TickSquare from "../../../../assets/Tick Square.svg";
 import RecButton from "../../../../shared/components/atoms/RecButton";
 import StarIcon from "../atoms/Star";
 import NumbersInAbout from "../molecules/NumbersInAbout";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const AboutUsSection = () => {
   const imageData = [
@@ -51,11 +52,12 @@ const AboutUsSection = () => {
             className="rate bg-white shadow-[35px_35px_65px_0px_rgba(146,106,120,0.16)] absolute -top-32 lg:-top-24 start-1/2 lg:start-[16%]
             -translate-x-1/2 lg:-translate-x-0 flex flex-col items-center p-5 lg:px-8 lg:py-0"
           >
-            <img
-              src={TickSquare}
-              alt="TickSquare"
-              className=" hidden lg:block shadow-[0px_0px_38px_0px_rgba(105,185,157,0.32)] m-[.17rem] mb-4"
-            />
+            <div
+              className="bg-main w-6 h-6 hidden lg:flex shadow-[0px_0px_38px_0px_rgba(105,185,157,0.32)] m-[.17rem] mb-4
+             justify-center items-center rounded-md"
+            >
+              <FontAwesomeIcon icon={faCheck} className="w-5 text-white" />
+            </div>
             <span className="text-maingray text-[2.5rem] lg:text-7xl leading-20">
               4.8
             </span>

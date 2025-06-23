@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginAction } from "../../utils/authActions";
+import {
+  isValidEmail,
+  isValidPhone,
+  loginAction,
+} from "../../utils/authActions";
 import MainLabelAndInput from "../molecules/MainLabelAndInput";
 import ServerError from "../atoms/ServerError";
 import MainButton from "../../../../shared/components/atoms/MainButton";
@@ -8,9 +12,9 @@ import type { InputType } from "../../types/authTypes";
 
 const LoginForm = () => {
   const emailOrPhoneData: InputType = {
-    name: "email",
-    type: "email",
-    placeholder: "Email",
+    name: "emailOrPhone",
+    type: "text",
+    placeholder: "Email or phone number",
   };
   const passwordData: InputType = {
     name: "password",
@@ -20,11 +24,11 @@ const LoginForm = () => {
 
   // state management
   const initialError = {
-    email: false,
+    emailOrPhone: false,
     password: false,
   };
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ emailOrPhone: "", password: "" });
   const [error, setError] = useState(initialError);
   const [serverError, setServerError] = useState<string[]>([]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,16 +44,23 @@ const LoginForm = () => {
     setServerError([]);
     e.preventDefault();
     const newErrors = {
-      email: !form.email,
+      emailOrPhone: !form.emailOrPhone,
       password: !form.password,
     };
     setError(newErrors);
-    if (!form.email || !form.password) return;
+    if (!form.emailOrPhone || !form.password) return;
     // Logging in
-    const res = await loginAction(form.email, form.password);
-    if (res.success) navigate("/");
-    else {
-      setServerError(res.message);
+
+    const email = isValidEmail(form.emailOrPhone) ? form.emailOrPhone : "";
+    const phone = isValidPhone(form.emailOrPhone) ? form.emailOrPhone : "";
+    if (!email && !phone) {
+      setServerError(["Please enter a valid email or phone number"]);
+    } else {
+      const res = await loginAction(email, phone, form.password);
+      if (res.success) navigate("/");
+      else {
+        setServerError(res.message);
+      }
     }
   };
   return (
@@ -58,9 +69,9 @@ const LoginForm = () => {
       className="w-full xs:w-[70%] sm:w-112.5 mt-15.5 space-y-6"
     >
       <MainLabelAndInput
-        hasError={error.email}
+        hasError={error.emailOrPhone}
         handleChange={handleChange}
-        label="Email"
+        label="Email or phone number"
         inputData={emailOrPhoneData}
       />
       <div>

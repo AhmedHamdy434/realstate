@@ -4,12 +4,22 @@ import { axiosInstance } from "../../../axios/config";
 import type { AuthResponseType } from "../types/authTypes";
 import { setToken } from "../userSlice";
 
+// validation email or phone number
+export const isValidEmail = (value: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(value);
+};
+export const isValidPhone = (value: string): boolean => {
+  const phoneRegex = /^\+?[0-9]{10,14}$/;
+  return phoneRegex.test(value);
+};
+
 //   Register Function
 export const registerAction = async (
   email: string,
+  phone: string,
   name: string,
-  password: string,
-  phone = "20120713673"
+  password: string
 ): Promise<AuthResponseType> => {
   try {
     const response = await axiosInstance.post("/auth/Signup", {
@@ -31,35 +41,19 @@ export const registerAction = async (
 
 export const loginAction = async (
   email: string,
+  phone: string,
   password: string
 ): Promise<AuthResponseType> => {
   try {
     const response = await axiosInstance.post("/auth/Login", {
       email,
+      phone,
       password,
     });
 
     const token = response.data.token;
     store.dispatch(setToken(token));
 
-    return {
-      success: true,
-      message: [response.data.message],
-    };
-  } catch (err: any) {
-    return err;
-  }
-};
-
-// forgot password
-
-export const forgotPasswordAction = async (
-  email: string
-): Promise<AuthResponseType> => {
-  try {
-    const response = await axiosInstance.post("/auth/forgotpassword", {
-      email,
-    });
     return {
       success: true,
       message: [response.data.message],
@@ -77,6 +71,41 @@ export const verifyEmailAction = async (
   try {
     const response = await axiosInstance.post("/auth/verifyResetCode", {
       resetCode: code,
+    });
+    return {
+      success: true,
+      message: [response.data.message],
+    };
+  } catch (err: any) {
+    return err;
+  }
+};
+
+// verify phone
+export const verifyPhoneAction = async (
+  otpcode: string
+): Promise<AuthResponseType> => {
+  try {
+    const response = await axiosInstance.post("/auth/verifyotpcode", {
+      otpcode,
+    });
+    return {
+      success: true,
+      message: [response.data.message],
+    };
+  } catch (err: any) {
+    return err;
+  }
+};
+
+// forgot password
+
+export const forgotPasswordAction = async (
+  email: string
+): Promise<AuthResponseType> => {
+  try {
+    const response = await axiosInstance.post("/auth/forgotpassword", {
+      email,
     });
     return {
       success: true,
