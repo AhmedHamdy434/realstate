@@ -20,7 +20,11 @@
   --neutrals4: rgba(119, 126, 144, 1);
   --neutrals5: rgba(177, 181, 195, 1);
   --neutrals6: rgba(230, 232, 236, 1);
+  --neutrals7: rgba(244, 245, 246, 1);
   --neutrals8: rgb(252, 252, 253);
+  --glass1: 0px 2.5rem 4rem -2rem rgba(15, 15, 15, 0.1);
+  --depth4: 0px 4rem 4rem -3rem rgba(15, 15, 15, 0.08);
+  --glass01: 2rem;
 }
 
 /* .dark {
@@ -49,7 +53,11 @@
   --color-neutrals4: var(--neutrals4);
   --color-neutrals5: var(--neutrals5);
   --color-neutrals6: var(--neutrals6);
+  --color-neutrals7: var(--neutrals7);
   --color-neutrals8: var(--neutrals8);
+  --shadow-glass1: var(--glass1);
+  --shadow-depth4: var(--depth4);
+  --blur-glass01: var(--glass01);
 
   --breakpoint-xs: 26rem;
 }
@@ -62,7 +70,7 @@ body {
 
 .container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
 }
 @media (80rem < width) {
   .container {
@@ -79,4 +87,18 @@ textarea:focus {
 }
 button {
   cursor: pointer;
+}
+@media (max-width: 64rem) {
+  .showing-up {
+    animation: showing 0.4s ease-in-out;
+  }
+}
+
+@keyframes showing {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

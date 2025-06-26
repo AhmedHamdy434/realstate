@@ -1,8 +1,10 @@
 import { useState } from "react";
 import RecButton from "../../../../shared/components/atoms/RecButton";
 import InputLanding from "../atoms/InputLanding";
+import { useNavigate } from "react-router-dom";
 
 const FilterSection = () => {
+  const navigate = useNavigate();
   const typesofSearch = ["Buy", "Rent"];
   type SearchType = (typeof typesofSearch)[number];
   const [type, setType] = useState<SearchType>("Buy");
@@ -52,6 +54,7 @@ const FilterSection = () => {
           buttonName="Search"
           className="shadow-[0px_0px_65px_0px_rgba(105,185,157,0.32)]"
           colored
+          handleClick={() => navigate("/rentsearch")}
         />
       </div>
     </>

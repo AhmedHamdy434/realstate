@@ -10,6 +10,7 @@ import { PublicRoute } from "./routes/PublicRoute";
 import SocialCallback from "../features/auth/pages/SocialCallback";
 import Footer from "../shared/components/template/Footer";
 import RentSearch from "../features/Rent/pages/RentSearch";
+import RentPropertyPage from "../features/Rent/pages/RentPropertyPage";
 // import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
 
         <Route path="/" element={<HomePage />} />
         <Route path="/rentsearch" element={<RentSearch />} />
+        <Route path="/rent/:id" element={<RentPropertyPage />} />
       </Routes>
       <Footer />
     </>

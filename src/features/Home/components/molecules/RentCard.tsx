@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { RentDetailsType } from "../../types/homeTypes";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const RentCard = ({ details }: { details: RentDetailsType }) => {
   const {
@@ -15,8 +16,12 @@ const RentCard = ({ details }: { details: RentDetailsType }) => {
     rating,
     reviews,
   } = details;
+  const navigate = useNavigate();
   return (
-    <div className="rounded-lg relative border border-neutrals6 bg-neutrals8">
+    <div
+      className="rounded-lg relative border border-neutrals6 bg-neutrals8 cursor-pointer"
+      onClick={() => navigate(`/rent/${name}`)}
+    >
       <img
         src={image}
         alt="image"
@@ -29,7 +34,7 @@ const RentCard = ({ details }: { details: RentDetailsType }) => {
         <div>
           <h5 className="font-medium leading-6 text-neutrals1 mb-2">{name}</h5>
           <div className="space-x-3">
-            {amenities.map((amenity) => (
+            {amenities.splice(0, 2).map((amenity) => (
               <span key={amenity} className="text-xs leading-5 text-neutrals4">
                 {amenity}
               </span>
