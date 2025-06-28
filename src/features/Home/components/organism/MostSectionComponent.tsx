@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import type { MostCardsComponentType } from "../../types/homeTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import PropertiesCard from "../molecules/PropertiesCard";
-import RentCard from "../molecules/RentCard";
+import RentCard from "../../../../shared/components/molecules/RentCard";
+import PropertiesCard from "../../../../shared/components/molecules/PropertiesCard";
 
 const MostSectionComponent = ({
   heading,

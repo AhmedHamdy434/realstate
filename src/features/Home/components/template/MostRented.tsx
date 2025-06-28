@@ -1,4 +1,4 @@
-import MostSectionComponent from "./MostSectionComponent";
+import MostSectionComponent from "../organism/MostSectionComponent";
 import RentImage from "../../../../assets/test/property01.png";
 
 const MostRented = () => {

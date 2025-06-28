@@ -1,13 +1,13 @@
 import Header from "../../../shared/components/template/Header";
-import AboutUsSection from "../components/organism/AboutUsSection";
-import BestHost from "../components/organism/BestHost";
-import BestProperties from "../components/organism/BestProperties";
-import ClientsSays from "../components/organism/ClientsSays";
-import GivingSection from "../components/organism/GivingSection";
-import InformationForm from "../components/organism/InformationForm";
-import Landing from "../components/organism/Landing";
-import MostRented from "../components/organism/MostRented";
-import Seperative from "../components/organism/Seperative";
+import AboutUsSection from "../components/template/AboutUsSection";
+import BestHost from "../components/template/BestHost";
+import BestProperties from "../components/template/BestProperties";
+import ClientsSays from "../components/template/ClientsSays";
+import GivingSection from "../components/template/GivingSection";
+import InformationForm from "../components/template/InformationForm";
+import Landing from "../components/template/Landing";
+import MostRented from "../components/template/MostRented";
+import Seperative from "../components/template/Seperative";
 
 const HomePage = () => {
   return (

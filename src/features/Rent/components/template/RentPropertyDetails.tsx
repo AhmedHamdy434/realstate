@@ -4,7 +4,7 @@ import type { RentDetailsType } from "../../../Home/types/homeTypes";
 import IconAndNameSm from "../atoms/IconAndNameSm";
 import IconAndNameLg from "../atoms/IconAndNameLg";
 import ButtonWithIcon2 from "../../../../shared/components/atoms/ButtonWithIcon2";
-import ReserveBox from "../molecules/ReserveBox";
+import ReserveBox from "../organism/ReserveBox";
 import { useState } from "react";
 
 const RentPropertyDetails = ({

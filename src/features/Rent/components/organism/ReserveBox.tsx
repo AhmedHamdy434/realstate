@@ -49,7 +49,6 @@ const ReserveBox = ({
             </span>
             <span className="text-neutrals2 block">
               {newPrice}
-
               <span className="ms-2.25 text-neutrals4 text-base leading-6 font-normal">
                 /night
               </span>

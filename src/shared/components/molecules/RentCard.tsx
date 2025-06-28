@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { RentDetailsType } from "../../types/homeTypes";
+import type { RentDetailsType } from "../../../features/Home/types/homeTypes";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 

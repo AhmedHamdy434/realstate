@@ -49,6 +49,5 @@ export type MostCardsComponentType = {
 };
 export type HorizontalScrollDataType = {
   heading: React.JSX.Element;
-  hostData?: HostDataType[];
-  clientData?: ClientDataType[];
+  cardData: React.JSX.Element[];
 };

@@ -1,7 +1,7 @@
 import Header from "../../../shared/components/template/Header";
-import LandingRentSearch from "../components/organism/LandingRentSearch";
-import RentSearchResults from "../components/organism/RentSearchResults";
-import SuperHost from "../components/organism/SuperHost";
+import LandingRentSearch from "../components/template/LandingRentSearch";
+import RentSearchResults from "../components/template/RentSearchResults";
+import SuperHost from "../components/template/SuperHost";
 
 const RentSearch = () => {
   return (

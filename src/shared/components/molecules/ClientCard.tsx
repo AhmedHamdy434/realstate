@@ -1,4 +1,4 @@
-import type { ClientDataType } from "../../types/homeTypes";
+import type { ClientDataType } from "../../../features/Home/types/homeTypes";
 
 const ClientCard = ({ data }: { data: ClientDataType }) => {
   const { image, name, miniHead, paragraph } = data;

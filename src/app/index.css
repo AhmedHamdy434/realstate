@@ -17,12 +17,14 @@
   --primary4: rgba(88, 194, 125, 1);
   --neutrals1: rgba(20, 20, 22, 1);
   --neutrals2: rgba(35, 38, 47, 1);
+  --neutrals3: rgba(53, 57, 69, 1);
   --neutrals4: rgba(119, 126, 144, 1);
   --neutrals5: rgba(177, 181, 195, 1);
   --neutrals6: rgba(230, 232, 236, 1);
   --neutrals7: rgba(244, 245, 246, 1);
   --neutrals8: rgb(252, 252, 253);
   --glass1: 0px 2.5rem 4rem -2rem rgba(15, 15, 15, 0.1);
+  --depth1: 0px 0.5rem 4rem -0.5rem rgba(15, 15, 15, 0.1);
   --depth4: 0px 4rem 4rem -3rem rgba(15, 15, 15, 0.08);
   --glass01: 2rem;
 }
@@ -50,12 +52,14 @@
   --color-primary4: var(--primary4);
   --color-neutrals1: var(--neutrals1);
   --color-neutrals2: var(--neutrals2);
+  --color-neutrals3: var(--neutrals3);
   --color-neutrals4: var(--neutrals4);
   --color-neutrals5: var(--neutrals5);
   --color-neutrals6: var(--neutrals6);
   --color-neutrals7: var(--neutrals7);
   --color-neutrals8: var(--neutrals8);
   --shadow-glass1: var(--glass1);
+  --shadow-depth1: var(--depth1);
   --shadow-depth4: var(--depth4);
   --blur-glass01: var(--glass01);
 

@@ -1,7 +1,7 @@
 import { faPlus, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import RentImage from "../../../../assets/test/property01.png";
 import { useState } from "react";
-import RentCard from "../../../Home/components/molecules/RentCard";
+import RentCard from "../../../../shared/components/molecules/RentCard";
 import ButtonWithIcon1 from "../../../../shared/components/atoms/ButtonWithIcon1";
 import GoHomeButton from "../atoms/GoHomeButton";
 import GoHomeMobile from "../atoms/GoHomeMobile";

@@ -1,5 +1,5 @@
-import RecButton from "../../../../shared/components/atoms/RecButton";
-import type { PropDetailsType } from "../../types/homeTypes";
+import type { PropDetailsType } from "../../../features/Home/types/homeTypes";
+import RecButton from "../atoms/RecButton";
 
 const PropertiesCard = ({ details }: { details: PropDetailsType }) => {
   const { image, city, country, price, currency, area, type } = details;

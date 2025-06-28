@@ -1,11 +1,12 @@
 import Host1 from "../../../../assets/client1.png";
 import Host2 from "../../../../assets/client2.png";
 import Host3 from "../../../../assets/client3.png";
-import HorizontalScroll from "../molecules/HorizontalScroll";
+import HorizontalScroll from "../../../../shared/components/organism/HorizontalScroll";
 import BackgroundImage from "../../../../assets/test/property02.png";
 import { useState } from "react";
 import DropMenu from "../../../../shared/components/molecules/DropMenu";
 import type { HostDataType } from "../../types/homeTypes";
+import HostCard from "../../../../shared/components/molecules/HostCard";
 
 const BestHost = () => {
   const durations = ["week", "month", "year"];
@@ -32,7 +33,9 @@ const BestHost = () => {
           />
         </div>
       }
-      hostData={dataMap[duration]}
+      cardData={dataMap[duration].map((data, index) => (
+        <HostCard key={`${data.name}${index}`} data={data} />
+      ))}
     />
   );
 };

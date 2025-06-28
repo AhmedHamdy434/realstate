@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { HostDataType } from "../../types/homeTypes";
+import type { HostDataType } from "../../../features/Home/types/homeTypes";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const HostCard = ({ data }: { data: HostDataType }) => {

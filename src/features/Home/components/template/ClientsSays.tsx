@@ -1,7 +1,8 @@
 import Client1 from "../../../../assets/client1.png";
 import Client2 from "../../../../assets/client2.png";
 import Client3 from "../../../../assets/client3.png";
-import HorizontalScroll from "../molecules/HorizontalScroll";
+import ClientCard from "../../../../shared/components/molecules/ClientCard";
+import HorizontalScroll from "../../../../shared/components/organism/HorizontalScroll";
 
 const ClientsSays = () => {
   return (
@@ -11,7 +12,9 @@ const ClientsSays = () => {
           What clients says
         </h5>
       }
-      clientData={clientsData}
+      cardData={clientsData.map((data, index) => (
+        <ClientCard key={`${data.name}${index}`} data={data} />
+      ))}
     />
   );
 };

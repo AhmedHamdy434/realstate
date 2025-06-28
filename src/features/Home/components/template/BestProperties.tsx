@@ -2,7 +2,7 @@ import PropertyImage1 from "../../../../assets/test/property01.png";
 import PropertyImage2 from "../../../../assets/test/property02.png";
 import PropertyImage3 from "../../../../assets/test/property03.png";
 
-import MostSectionComponent from "./MostSectionComponent";
+import MostSectionComponent from "../organism/MostSectionComponent";
 
 const BestProperties = () => {
   return (

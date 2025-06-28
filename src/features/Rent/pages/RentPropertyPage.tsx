@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom";
 import GoHomeButton from "../components/atoms/GoHomeButton";
 import RentImage from "../../../assets/test/property01.png";
-import RentPropertyHeading from "../components/organism/RentPropertyHeading";
+import RentPropertyHeading from "../components/template/RentPropertyHeading";
 import Header from "../../../shared/components/template/Header";
-import RentPropertyImages from "../components/organism/RentPropertyImages";
-import RentPropertyDetails from "../components/organism/RentPropertyDetails";
+import RentPropertyImages from "../components/template/RentPropertyImages";
+import RentPropertyDetails from "../components/template/RentPropertyDetails";
 import HostImage from "../../../assets/client2.png";
+import RentHostReview from "../components/template/RentHostReview";
+import HorizontalScroll from "../../../shared/components/organism/HorizontalScroll";
+import TypeCard from "../../../shared/components/molecules/TypeCard";
 
 const RentPropertyPage = () => {
   const { id } = useParams();
@@ -49,6 +52,32 @@ const RentPropertyPage = () => {
         <RentPropertyDetails
           details={RentPropertyData}
           imageOfHost={imageOfHost}
+        />
+        <RentHostReview details={RentPropertyData} imageOfHost={imageOfHost} />
+
+        <HorizontalScroll
+          heading={
+            <h3 className="text-neutrals-2 text-3xl lg:text-5xl leading-12 font-bold">
+              Browse by property type
+            </h3>
+          }
+          cardData={Array(10)
+            .fill("")
+            .map((_, index) => (
+              <TypeCard key={index} />
+            ))}
+        />
+        <HorizontalScroll
+          heading={
+            <h3 className="text-neutrals-2 text-3xl lg:text-5xl leading-12 font-bold">
+              Explore mountains in New Zealand
+            </h3>
+          }
+          cardData={Array(10)
+            .fill("")
+            .map((_, index) => (
+              <TypeCard key={index} />
+            ))}
         />
       </div>
     </>

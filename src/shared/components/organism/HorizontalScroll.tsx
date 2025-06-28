@@ -1,15 +1,9 @@
 import { useRef, useState } from "react";
-import type { HorizontalScrollDataType } from "../../types/homeTypes";
-import StarIcon from "../atoms/Star";
-import ClientCard from "./ClientCard";
-import HostCard from "./HostCard";
+import type { HorizontalScrollDataType } from "../../../features/Home/types/homeTypes";
+import StarIcon from "../../../features/Home/components/atoms/Star";
 import ScrollArrow from "../atoms/ScrollArrow";
 
-const HorizontalScroll = ({
-  heading,
-  hostData,
-  clientData,
-}: HorizontalScrollDataType) => {
+const HorizontalScroll = ({ heading, cardData }: HorizontalScrollDataType) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -56,12 +50,7 @@ const HorizontalScroll = ({
             msOverflowStyle: "none",
           }}
         >
-          {clientData?.map((data, index) => (
-            <ClientCard key={`${data.name}${index}`} data={data} />
-          ))}
-          {hostData?.map((data, index) => (
-            <HostCard key={`${data.name}${index}`} data={data} />
-          ))}
+          {cardData}
         </div>
       </div>
     </div>
