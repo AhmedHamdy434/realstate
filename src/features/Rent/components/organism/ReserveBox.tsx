@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircleImage from "../../../../shared/components/atoms/CircleImage";
 import ButtonWithIcon1 from "../../../../shared/components/atoms/ButtonWithIcon1";
 import ReservePrice from "../atoms/ReservePrice";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import useClickOutside from "../../../../shared/hooks/useClickOutside";
 
 const ReserveBox = ({
   details,
@@ -20,19 +21,7 @@ const ReserveBox = ({
   const { oldPrice, newPrice, rating, reviews } = details;
   const ReserveBoxRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (
-        ReserveBoxRef.current &&
-        !ReserveBoxRef.current.contains(e.target as Node)
-      )
-        setShowing(false);
-    };
-    document.addEventListener("mousedown", handleClickOutSide);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutSide);
-    };
-  });
+  useClickOutside(ReserveBoxRef, () => setShowing(false));
 
   return (
     <div

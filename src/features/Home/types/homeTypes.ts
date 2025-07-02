@@ -51,3 +51,5 @@ export type HorizontalScrollDataType = {
   heading: React.JSX.Element;
   cardData: React.JSX.Element[];
 };
+
+export type TravelerType = "adults" | "children" | "baby";

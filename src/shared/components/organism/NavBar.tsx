@@ -14,8 +14,9 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import Avatar from "../../../assets/avatar.png";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PrimaryButton from "../atoms/PrimaryButton";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const NavBar = ({ currentPage }: { currentPage: string }) => {
   const { token }: { user: User | null; token: string | null } = useSelector(
@@ -28,26 +29,9 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
   const dispatch = useDispatch();
   const [barMenu, setBarMenu] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (barRef.current && !barRef.current.contains(e.target as Node))
-        setBarMenu(false);
-    };
-    document.addEventListener("mousedown", handleClickOutSide);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutSide);
-    };
-  });
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (userRef.current && !userRef.current.contains(e.target as Node))
-        setUserMenu(false);
-    };
-    document.addEventListener("mousedown", handleClickOutSide);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutSide);
-    };
-  });
+
+  useClickOutside(barRef, () => setBarMenu(false));
+  useClickOutside(userRef, () => setUserMenu(false));
 
   return (
     <>

@@ -16,22 +16,33 @@ export const isValidPhone = (value: string): boolean => {
 
 //   Register Function
 export const registerAction = async (
-  email: string,
-  phone: string,
   name: string,
-  password: string
+  password: string,
+  email: string,
+  phone: string
 ): Promise<AuthResponseType> => {
   try {
-    const response = await axiosInstance.post("/auth/Signup", {
-      userName: name,
-      email,
-      password,
-      phone,
-    });
-    return {
-      success: true,
-      message: [response.data.message],
-    };
+    if (email && !phone) {
+      const response = await axiosInstance.post("/auth/Signup", {
+        userName: name,
+        email,
+        password,
+      });
+      return {
+        success: true,
+        message: [response.data.message],
+      };
+    } else {
+      const response = await axiosInstance.post("/auth/Signup", {
+        userName: name,
+        password,
+        phone,
+      });
+      return {
+        success: true,
+        message: [response.data.message],
+      };
+    }
   } catch (err: any) {
     return err;
   }
@@ -45,19 +56,25 @@ export const loginAction = async (
   password: string
 ): Promise<AuthResponseType> => {
   try {
-    const response = await axiosInstance.post("/auth/Login", {
-      email,
-      phone,
-      password,
-    });
-
-    const token = response.data.token;
-    store.dispatch(setToken(token));
-
-    return {
-      success: true,
-      message: [response.data.message],
-    };
+    if (email && !phone) {
+      const response = await axiosInstance.post("/auth/Login", {
+        email,
+        password,
+      });
+      return {
+        success: true,
+        message: [response.data.message],
+      };
+    } else {
+      const response = await axiosInstance.post("/auth/Login", {
+        phone,
+        password,
+      });
+      return {
+        success: true,
+        message: [response.data.message],
+      };
+    }
   } catch (err: any) {
     return err;
   }

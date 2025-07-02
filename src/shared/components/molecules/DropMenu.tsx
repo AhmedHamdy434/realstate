@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { DropMenuType } from "../../types/sharedTypes";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const DropMenu = ({
   value,
@@ -12,17 +13,8 @@ const DropMenu = ({
 }: DropMenuType) => {
   const valueRef = useRef<HTMLDivElement>(null);
   const [valueMenu, setValueMenu] = useState(false);
+  useClickOutside(valueRef, () => setValueMenu(false));
 
-  useEffect(() => {
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (valueRef.current && !valueRef.current.contains(e.target as Node))
-        setValueMenu(false);
-    };
-    document.addEventListener("mousedown", handleClickOutSide);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutSide);
-    };
-  });
   return (
     <div
       className={`flex justify-between items-center gap-2 relative cursor-pointer ${className1}`}
