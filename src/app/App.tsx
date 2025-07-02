@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "../features/auth/pages/Login";
@@ -9,13 +10,15 @@ import HomePage from "../features/Home/pages/HomePage";
 import { PublicRoute } from "./routes/PublicRoute";
 import SocialCallback from "../features/auth/pages/SocialCallback";
 import Footer from "../shared/components/template/Footer";
-import RentSearch from "../features/Rent/pages/RentSearch";
-import RentPropertyPage from "../features/Rent/pages/RentPropertyPage";
+const RentSearch = lazy(() => import("../features/Rent/pages/RentSearch"));
+const RentPropertyPage = lazy(
+  () => import("../features/Rent/pages/RentPropertyPage")
+);
 // import { ProtectedRoute } from "./routes/ProtectedRoute";
 
 function App() {
   return (
-    <>
+    <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
       <Routes>
         <Route path="/auth">
           <Route
@@ -76,7 +79,7 @@ function App() {
         <Route path="/rent/:id" element={<RentPropertyPage />} />
       </Routes>
       <Footer />
-    </>
+    </Suspense>
   );
 }
 
