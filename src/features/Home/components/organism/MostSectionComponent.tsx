@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import type { MostCardsComponentType } from "../../types/homeTypes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import RentCard from "../../../../shared/components/molecules/RentCard";
 import PropertiesCard from "../../../../shared/components/molecules/PropertiesCard";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const MostSectionComponent = ({
   heading,
@@ -29,9 +28,7 @@ const MostSectionComponent = ({
           className="flex px-6 py-3 gap-2 items-center sm:min-w-46 ms-auto text-sm lg:text-lg text-main font-medium leading-6.5 tracking-[0.5px]"
         >
           <span>Learn More</span>
-          <div className="w-5 h-5 rounded-full bg-main flex justify-center items-center shadow-[0px_0px_20px_0px_rgba(105,185,157,0.58)]">
-            <FontAwesomeIcon icon={faAngleRight} className="text-white w-2" />
-          </div>
+          <SvgIcon iconName="ArrowRightCircle" svgProp={{ width: "1.25rem" }} />
         </Link>
       </div>
       <div className="cards grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8.5 mb-20.5 lg:mb-46.5">

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Rating from "../atoms/Rating";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ButtonWithIcon2 from "../../../../shared/components/atoms/ButtonWithIcon2";
 
 const AddingReview = () => {
@@ -23,9 +22,8 @@ const AddingReview = () => {
         <div className="absolute top-1/2 end-4 -translate-y-1/2 flex gap-4 items-center">
           <ButtonWithIcon2
             buttonName="Post it!"
-            icon={faArrowRight}
+            icon="RightLine"
             classNameButton="bg-main text-neutrals8"
-            classNameIcon="text-neutrals8"
           />
         </div>
       </div>

@@ -1,5 +1,4 @@
-import { faStar, type IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const Rating = ({
   rate,
@@ -8,17 +7,20 @@ const Rating = ({
   rate: number;
   setRate?: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const stars: IconDefinition[] = Array(5).fill(faStar);
+  const stars = Array(5).fill(0);
   return (
     <>
-      {stars.map((star, i) => (
-        <FontAwesomeIcon
+      {stars.map((_, i) => (
+        <SvgIcon
           key={i}
-          icon={star}
-          className={`${setRate ? "w-6 me-1 cursor-pointer" : "w-4 me-0.5"} ${
-            rate > i ? "text-yellow-500" : "text-neutrals6"
-          }`}
-          onClick={setRate ? () => setRate(i + 1) : undefined}
+          iconName={rate > i ? "star" : "StarShape"}
+          svgProp={{
+            width: setRate ? "1.25rem" : "0.8rem",
+            height: setRate ? "1.25rem" : "0.8rem",
+            cursor: setRate ? "pointer" : "",
+          }}
+          wrapperStyle="inline-block w-fit me-1"
+          handleClick={setRate ? () => setRate(i + 1) : undefined}
         />
       ))}
     </>

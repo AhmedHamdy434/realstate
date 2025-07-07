@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { DropMenuType } from "../../types/sharedTypes";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
+import SvgIcon from "../atoms/SvgIcon";
 
 const DropMenu = ({
   value,
@@ -22,7 +21,7 @@ const DropMenu = ({
       ref={valueRef}
     >
       <span className="block">{value}</span>
-      <FontAwesomeIcon icon={faAngleDown} className="w-6" />
+      <SvgIcon iconName="ArrowDownLine" svgProp={{ width: "1.5rem" }} />
       {valueMenu && (
         <div
           className={`absolute top-full end-0 z-30 min-w-full rounded-3xl space-y-1 bg-neutrals8 ${className2}`}

@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { HostDataType } from "../../../features/Home/types/homeTypes";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../atoms/SvgIcon";
 
 const HostCard = ({ data }: { data: HostDataType }) => {
   const { image, name, miniHead, background, rating } = data;
@@ -20,7 +19,7 @@ const HostCard = ({ data }: { data: HostDataType }) => {
           className="min-w-full h-full rounded-t-3xl"
         />
         <span className="absolute top-4 start-4 rounded-3xl px-2 py-0.5 bg-neutrals8 text-neutrals2 text-xs leading-5 font-semibold">
-          <FontAwesomeIcon icon={faStar} className="text-yellow-500 me-1" />
+          <SvgIcon iconName="star" wrapperStyle="me-1" />
           {rating}
         </span>
         <img

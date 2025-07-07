@@ -1,7 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { RentDetailsType } from "../../../features/Home/types/homeTypes";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import SvgIcon from "../atoms/SvgIcon";
 
 const RentCard = ({ details }: { details: RentDetailsType }) => {
   const {
@@ -60,7 +59,7 @@ const RentCard = ({ details }: { details: RentDetailsType }) => {
         </span>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
+            <SvgIcon iconName="star" />
             <span className="font-semibold text-neutrals2">{rating}</span>
           </div>
           <span className="text-neutrals4">({reviews} reviews)</span>

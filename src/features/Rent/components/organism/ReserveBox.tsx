@@ -1,11 +1,10 @@
-import { faFlag, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import type { RentDetailsType } from "../../../Home/types/homeTypes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircleImage from "../../../../shared/components/atoms/CircleImage";
 import ButtonWithIcon1 from "../../../../shared/components/atoms/ButtonWithIcon1";
 import ReservePrice from "../atoms/ReservePrice";
 import { useRef } from "react";
 import useClickOutside from "../../../../shared/hooks/useClickOutside";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const ReserveBox = ({
   details,
@@ -44,7 +43,10 @@ const ReserveBox = ({
             </span>
           </div>
           <div className="flex gap-2 text-sm leading-6 items-center">
-            <FontAwesomeIcon icon={faStar} className="w-5 text-yellow-500" />
+            <SvgIcon
+              iconName="star"
+              svgProp={{ width: "1.25rem", height: "1.25rem" }}
+            />
             <span className="text-neutrals2 font-medium">{rating}</span>
             <span className="text-neutrals4">({reviews} reviews)</span>
           </div>
@@ -53,10 +55,10 @@ const ReserveBox = ({
       </div>
       <div className="h-46 p-2 bg-neutrals7 rounded-[1.25rem] w-full"></div>
       <div className="flex gap-2">
-        <ButtonWithIcon1 buttonName="Save" icon={faPlus} />
+        <ButtonWithIcon1 buttonName="Save" icon="PlussLine" />
         <ButtonWithIcon1
           buttonName="Rent"
-          icon={faPlus}
+          icon="ShoppingBagLine"
           classNameButton="bg-main flex-1 text-neutrals8 justify-center"
           classNameIcon="text-neutrals8"
         />
@@ -75,8 +77,8 @@ const ReserveBox = ({
           classNameSpan="text-neutrals2 font-medium"
         />
       </div>
-      <button className="text-neutrals4 text-xs leading-5 mx-auto space-x-2 block">
-        <FontAwesomeIcon icon={faFlag} className="w-3" />
+      <button className="text-neutrals4 text-xs leading-5 mx-auto flex gap-2 items-center">
+        <SvgIcon iconName="FlagLine" svgProp={{ width: "0.75rem" }} />
         <span>Report this property</span>
       </button>
     </div>

@@ -1,4 +1,3 @@
-import { faPlus, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import RentImage from "../../../../assets/test/property01.png";
 import { useState } from "react";
 import RentCard from "../../../../shared/components/molecules/RentCard";
@@ -28,7 +27,7 @@ const RentSearchResults = () => {
         <ButtonWithIcon1
           buttonName="Advanced filter"
           classNameButton="hidden md:flex"
-          icon={faPlus}
+          icon="PlussLine"
           classNameIcon="w-2.25"
         />
       </div>
@@ -49,7 +48,7 @@ const RentSearchResults = () => {
         buttonName="Show more"
         classNameButton="mx-auto"
         flip
-        icon={moreLoading ? faSpinner : undefined}
+        icon={moreLoading ? "LoadingLine" : undefined}
         classNameIcon="w-3.5"
         handleClick={handleShowMore}
       />

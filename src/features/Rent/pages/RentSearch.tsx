@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 import Header from "../../../shared/components/template/Header";
 import LandingRentSearch from "../components/template/LandingRentSearch";
 import RentSearchResults from "../components/template/RentSearchResults";
-import SuperHost from "../components/template/SuperHost";
 import { useState } from "react";
 import type { TravelerType } from "../../Home/types/homeTypes";
 import type { DateRange } from "react-day-picker";
@@ -41,7 +40,6 @@ const RentSearch = () => {
       <Header currentPage="Property" />
       <LandingRentSearch searchData={searchData} />
       <RentSearchResults />
-      <SuperHost />
     </>
   );
 };

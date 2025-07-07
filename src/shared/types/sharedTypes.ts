@@ -1,5 +1,3 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 export type DropMenuType = {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
@@ -12,6 +10,12 @@ export type ButtonWithIconType = {
   flip?: boolean;
   classNameButton?: string;
   classNameIcon?: string;
-  icon?: IconDefinition;
+  icon?: string;
   handleClick?: () => void;
 };
+export interface IProps {
+  iconName: string;
+  wrapperStyle?: string;
+  svgProp?: React.SVGProps<SVGSVGElement>;
+  handleClick?: () => void;
+}

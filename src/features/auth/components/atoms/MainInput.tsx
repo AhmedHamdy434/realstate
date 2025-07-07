@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { InputType } from "../../types/authTypes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const MainInput = ({
   inputData,
@@ -22,10 +21,11 @@ const MainInput = ({
         name={name}
       />
       {name === "password" && (
-        <FontAwesomeIcon
-          icon={hiddenPassword ? faEyeSlash : faEye}
-          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer w-6"
-          onClick={() => setHiddenPassword(!hiddenPassword)}
+        <SvgIcon
+          iconName={hiddenPassword ? "eyefilled" : "EyeLine"}
+          wrapperStyle="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer"
+          svgProp={{ width: "1.5rem" }}
+          handleClick={() => setHiddenPassword(!hiddenPassword)}
         />
       )}
     </div>

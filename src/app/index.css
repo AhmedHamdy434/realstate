@@ -25,6 +25,7 @@
   --neutrals8: rgb(252, 252, 253);
   --glass1: 0px 2.5rem 4rem -2rem rgba(15, 15, 15, 0.1);
   --depth1: 0px 0.5rem 4rem -0.5rem rgba(15, 15, 15, 0.1);
+  --depth2: 0px 1.5rem 1.5rem -1rem rgba(15, 15, 15, 0.2);
   --depth3: 0px 2.5rem 2rem -1.5rem rgba(15, 15, 15, 0.12);
   --depth4: 0px 4rem 4rem -3rem rgba(15, 15, 15, 0.08);
   --glass01: 2rem;
@@ -61,6 +62,7 @@
   --color-neutrals8: var(--neutrals8);
   --shadow-glass1: var(--glass1);
   --shadow-depth1: var(--depth1);
+  --shadow-depth2: var(--depth2);
   --shadow-depth3: var(--depth3);
   --shadow-depth4: var(--depth4);
   --blur-glass01: var(--glass01);
@@ -106,4 +108,38 @@ button {
   to {
     transform: translateY(0);
   }
+}
+.leaflet-control-zoom {
+  border-radius: 64px !important;
+  box-shadow: var(--depth2);
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background-color: var(--neutrals8) !important;
+  color: black;
+  font-weight: bold;
+  span {
+    font-size: 1.25rem !important;
+    color: var(--neutrals4) !important;
+  }
+}
+
+/* تعديل شكل Popup */
+.leaflet-popup-content {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  padding: 10px;
+}
+
+/* إزالة الحد الزائد */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.leaflet-popup-tip {
+  background: white;
 }

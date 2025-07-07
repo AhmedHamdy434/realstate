@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import LogoPic from "../atoms/LogoPic";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../atoms/SvgIcon";
 
 const Footer = () => {
   const footerItems = [
@@ -52,9 +51,9 @@ const Footer = () => {
               className="border-2 border-neutrals6 rounded-[5.75rem] py-3.5 ps-4 text-sm leading-6 w-full"
             />
             <div className="bg-main w-8 h-8 rounded-full flex justify-center items-center absolute top-1/2 end-2 -translate-y-1/2">
-              <FontAwesomeIcon
-                className="w-6 h-6 text-white"
-                icon={faArrowRight}
+              <SvgIcon
+                iconName="ArrowRightLine"
+                svgProp={{ width: "1.5rem" }}
               />
             </div>
           </div>

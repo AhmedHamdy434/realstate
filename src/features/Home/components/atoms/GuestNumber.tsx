@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { TravelerType } from "../../types/homeTypes";
-import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const GuestNumber = ({
   travelers,
@@ -21,18 +20,20 @@ const GuestNumber = ({
           <p className="text-xs text-neutrals4 leading-5">{paragraph[1]}</p>
         </div>
         <div className="flex gap-4 items-center">
-          <FontAwesomeIcon
-            icon={faMinusCircle}
-            className={`w-6 cursor-pointer ${
-              travelers === 0 ? "text-neutrals6" : "text-neutrals5"
-            }`}
-            onClick={() => handleChange(key, "decrement")}
+          <SvgIcon
+            iconName="MinusLine"
+            wrapperStyle={`${travelers === 0 ? "" : "cursor-pointer"}`}
+            svgProp={{ width: "1.5rem", opacity: travelers === 0 ? 0.2 : 1 }}
+            handleClick={
+              travelers === 0 ? undefined : () => handleChange(key, "decrement")
+            }
           />
           <span className="font-medium text-neutrals2">{travelers} </span>
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            className="w-6 text-neutrals5 cursor-pointer"
-            onClick={() => handleChange(key, "increment")}
+          <SvgIcon
+            iconName="PlusLine"
+            wrapperStyle="cursor-pointer text-red-500 fill-red-500"
+            svgProp={{ width: "1.5rem", fill: "red" }}
+            handleClick={() => handleChange(key, "increment")}
           />
         </div>
       </div>

@@ -2,10 +2,9 @@ import { useRef, useState } from "react";
 import { DayPicker, type DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import "./custom-datepicker.css";
-import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDateRangeEn } from "../../utiles/formatDateRangeEn";
 import useClickOutside from "../../../../shared/hooks/useClickOutside";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 export default function DateRangeSelector({
   range,
@@ -21,9 +20,10 @@ export default function DateRangeSelector({
 
   return (
     <div className="relative w-full flex gap-3 rounded-2xl bg-neutrals8 shadow-depth4">
-      <FontAwesomeIcon
-        icon={faCalendarDays}
-        className="w-8 mt-2 text-neutrals5"
+      <SvgIcon
+        iconName="CalenderLine"
+        wrapperStyle="mt-1"
+        svgProp={{ width: "2rem" }}
       />
       <div ref={dateRef}>
         <button
@@ -41,7 +41,7 @@ export default function DateRangeSelector({
           Add date
         </p>
         {isOpen && (
-          <div className="absolute bottom-[calc(100%+1.75rem)] start-1/2 -translate-x-1/2 text-sm font-medium z-50 bg-neutrals8 p-4 sm:p-8 lg:p-12 rounded-3xl shadow-depth3 text-neutrals2">
+          <div className="absolute -bottom-[10rem] sm:bottom-[calc(100%+1.75rem)] start-1/2 -translate-x-1/2 text-sm font-medium z-50 bg-neutrals8 p-4 sm:p-8 lg:p-12 rounded-3xl shadow-depth3 text-neutrals2">
             <DayPicker
               mode="range"
               navLayout="around"

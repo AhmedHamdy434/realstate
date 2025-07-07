@@ -1,12 +1,11 @@
 import DateRangeSelector from "../atoms/DateRangeSelector";
 import LocationSelector from "../atoms/LocationSelector";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import TravelersSelector from "../atoms/TravelersSelector";
 import { useState } from "react";
 import type { DateRange } from "react-day-picker";
 import type { TravelerType } from "../../types/homeTypes";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const InputSearch = () => {
   const navigate = useNavigate();
@@ -41,9 +40,10 @@ const InputSearch = () => {
           )
         }
       >
-        <FontAwesomeIcon
-          icon={faSearch}
-          className="absolute opacity-0 sm:relative sm:opacity-100 shadow-[0px_0px_65px_0px_rgba(105,185,157,0.32)] w-5 text-neutrals8"
+        <SvgIcon
+          iconName="Search"
+          wrapperStyle="absolute hidden sm:block sm:relative sm:opacity-100 shadow-[0px_0px_65px_0px_rgba(105,185,157,0.32)]"
+          svgProp={{ width: "1.5rem" }}
         />
         <span className="sm:hidden text-neutrals8">Search</span>
       </div>

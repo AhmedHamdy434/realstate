@@ -2,7 +2,6 @@ import { useState } from "react";
 import CommentProfile from "../../../../assets/client3.png";
 import ButtonWithIcon2 from "../../../../shared/components/atoms/ButtonWithIcon2";
 import Comment from "../atoms/Comment";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 const Comments = () => {
   const [moreLoading, setMoreLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -33,7 +32,7 @@ const Comments = () => {
         buttonName="Show more"
         classNameButton="mx-auto"
         flip
-        icon={moreLoading ? faSpinner : undefined}
+        icon={moreLoading ? "LoadingLine" : undefined}
         classNameIcon="w-3.5"
         handleClick={handleLoadMore}
       />

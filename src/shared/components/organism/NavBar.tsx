@@ -3,20 +3,11 @@ import RecButton from "../atoms/RecButton";
 import { logout, type User } from "../../../features/auth/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../app/store";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faBell,
-  faClipboardList,
-  faEnvelope,
-  faFlag,
-  faHouse,
-  faMessage,
-} from "@fortawesome/free-solid-svg-icons";
 import Avatar from "../../../assets/avatar.png";
 import { useRef, useState } from "react";
 import PrimaryButton from "../atoms/PrimaryButton";
 import useClickOutside from "../../hooks/useClickOutside";
+import SvgIcon from "../atoms/SvgIcon";
 
 const NavBar = ({ currentPage }: { currentPage: string }) => {
   const { token }: { user: User | null; token: string | null } = useSelector(
@@ -68,9 +59,10 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
             />
 
             <div className="w-10 h-10 relative flex justify-center items-center">
-              <FontAwesomeIcon
-                icon={faBell}
-                className="text-neutrals4 w-6 h-6"
+              <SvgIcon
+                iconName="BellLine"
+                wrapperStyle="cursor-pointer"
+                svgProp={{ width: "1.5rem" }}
               />
               <div className="w-3 h-3 rounded-full bg-primary4 absolute end-0 top-0"></div>
             </div>
@@ -89,7 +81,7 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
                       className="text-neutrals4 font-bold text-sm text-start w-full p-3 flex gap-3 items-center"
                       to={goto}
                     >
-                      {icon}
+                      <SvgIcon iconName={icon} svgProp={{ width: "1.5rem" }} />
                       {name}
                     </Link>
                   ))}
@@ -100,7 +92,7 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
                       className="text-neutrals4 font-bold text-sm text-start w-full p-3 flex gap-3 items-center"
                       to={goto}
                     >
-                      {icon}
+                      <SvgIcon iconName={icon} svgProp={{ width: "1.5rem" }} />
                       {name}
                     </Link>
                   ))}
@@ -140,10 +132,11 @@ const NavBar = ({ currentPage }: { currentPage: string }) => {
         )}
       </nav>
       <div className="lg:hidden me-5" ref={barRef}>
-        <FontAwesomeIcon
-          className="w-5 cursor-pointer"
-          icon={faBars}
-          onClick={() => setBarMenu(!barMenu)}
+        <SvgIcon
+          iconName="BurgerLine"
+          wrapperStyle="cursor-pointer"
+          svgProp={{ width: "1.25rem" }}
+          handleClick={() => setBarMenu(!barMenu)}
         />
         {barMenu && (
           <div className="absolute top-full end-4 z-30 lg:hidden w-[90%] max-w-86 rounded-[1.25rem] p-4 space-y-1 bg-neutrals8">
@@ -211,29 +204,29 @@ const navBarItems = [
 ];
 const userAccountDropMenuOne = [
   {
-    icon: <FontAwesomeIcon icon={faMessage} className="w-6" />,
+    icon: "CommentLine",
     name: "Messages",
     goto: "/",
   },
   {
-    icon: <FontAwesomeIcon icon={faHouse} className="w-6" />,
+    icon: "HomeLine",
     name: "Bookings",
     goto: "/",
   },
   {
-    icon: <FontAwesomeIcon icon={faEnvelope} className="w-6" />,
+    icon: "EmailLine",
     name: "Wishlists",
     goto: "/",
   },
 ];
 const userAccountDropMenuTwo = [
   {
-    icon: <FontAwesomeIcon icon={faClipboardList} className="w-6" />,
+    icon: "BuildingLine",
     name: "List your property",
     goto: "/",
   },
   {
-    icon: <FontAwesomeIcon icon={faFlag} className="w-6" />,
+    icon: "FlagLine",
     name: "Host an experience",
     goto: "/",
   },

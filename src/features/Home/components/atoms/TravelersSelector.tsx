@@ -1,9 +1,8 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import type { TravelerType } from "../../types/homeTypes";
 import GuestNumber from "./GuestNumber";
 import useClickOutside from "../../../../shared/hooks/useClickOutside";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const TravelersSelector = ({
   travelers,
@@ -34,7 +33,11 @@ const TravelersSelector = ({
 
   return (
     <div className="relative w-full flex gap-3 rounded-2xl bg-neutrals8 shadow-depth4">
-      <FontAwesomeIcon icon={faUser} className="w-8 mt-2 text-neutrals5" />
+      <SvgIcon
+        iconName="UserLine"
+        wrapperStyle="mt-1.5"
+        svgProp={{ width: "2rem" }}
+      />
       <div ref={travelersRef}>
         <button
           className="block text-lg md:text-xl lg:text-2xl text-neutrals2 font-semibold leading-8"

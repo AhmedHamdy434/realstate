@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import ButtonWithIcon2 from "../../../../shared/components/atoms/ButtonWithIcon2";
-import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 const RentPropertyImages = ({
   id,
@@ -32,7 +31,7 @@ const RentPropertyImages = ({
         flip
         classNameButton="border-0 bg-neutrals8 absolute start-6 bottom-6"
         classNameIcon="text-neutrals2"
-        icon={faImage}
+        icon="ImageLine"
         handleClick={() => navigate(`/rent/${id}/images`)}
       />
     </div>

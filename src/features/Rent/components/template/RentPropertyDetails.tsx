@@ -1,4 +1,3 @@
-import { faFlag, faHouse } from "@fortawesome/free-solid-svg-icons";
 import CircleImage from "../../../../shared/components/atoms/CircleImage";
 import type { RentDetailsType } from "../../../Home/types/homeTypes";
 import IconAndNameSm from "../atoms/IconAndNameSm";
@@ -59,7 +58,7 @@ const RentPropertyDetails = ({
               .map((amenity, i) => (
                 <IconAndNameLg
                   key={`${amenity}${i}`}
-                  icon={faHouse}
+                  icon="HomeLine"
                   title={amenity}
                 />
               ))}
@@ -71,7 +70,7 @@ const RentPropertyDetails = ({
               .map((amenity, i) => (
                 <IconAndNameLg
                   key={`${amenity}${i}`}
-                  icon={faHouse}
+                  icon="HomeLine"
                   title={amenity}
                 />
               ))}
@@ -97,15 +96,15 @@ export default RentPropertyDetails;
 
 const iconsAndTitle = [
   {
-    icon: faHouse,
+    icon: "HomeLine",
     title: "2 guests",
   },
   {
-    icon: faFlag,
+    icon: "FlagLine",
     title: "1 bedroom",
   },
   {
-    icon: faFlag,
+    icon: "FlagLine",
     title: "1 private bath",
   },
 ];

@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackgroundImage from "../../../../assets/user/image.png";
 import DateRangeSelector from "../../../Home/components/atoms/DateRangeSelector";
 import LocationSelector from "../../../Home/components/atoms/LocationSelector";
 import TravelersSelector from "../../../Home/components/atoms/TravelersSelector";
 import type { RentSearchDataType } from "../../types/rentTypes";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const LandingRentSearch = ({
   searchData,
@@ -66,12 +65,13 @@ const LandingRentSearch = ({
           />
         </div>
         <div
-          className="w-16 h-16 rounded-full bg-main flex justify-center items-center cursor-pointer"
+          className="w-fit mt-7.5 sm:mt-0 px-4 py-3 sm:p-0 sm:w-16 sm:h-16 rounded-md sm:rounded-full bg-main flex justify-center items-center cursor-pointer"
           onClick={handleSearch}
         >
-          <FontAwesomeIcon
-            icon={faSearch}
-            className="absolute opacity-0 sm:relative sm:opacity-100 shadow-[0px_0px_65px_0px_rgba(105,185,157,0.32)] w-5 text-neutrals8"
+          <SvgIcon
+            iconName="Search"
+            wrapperStyle="absolute hidden sm:block sm:relative sm:opacity-100 shadow-[0px_0px_65px_0px_rgba(105,185,157,0.32)]"
+            svgProp={{ width: "1.5rem" }}
           />
           <span className="sm:hidden text-neutrals8">Search</span>
         </div>

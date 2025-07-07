@@ -1,19 +1,9 @@
 import GoHomeMobile from "../atoms/GoHomeMobile";
-import {
-  faArrowUpFromBracket,
-  faEllipsis,
-  faFlag,
-  faHeart,
-  faHouse,
-  faLocationArrow,
-  faStar,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
 import IconsCirrcle from "../atoms/IconsCirrcle";
 import type { RentDetailsType } from "../../../Home/types/homeTypes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircleImage from "../../../../shared/components/atoms/CircleImage";
 import IconAndNameSm from "../atoms/IconAndNameSm";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const RentPropertyHeading = ({
   details,
@@ -35,7 +25,10 @@ const RentPropertyHeading = ({
         <div className="flex ps-8 md:ps-0 items-center gap-5 text-sm leading-6 text-neutrals4">
           <CircleImage image={imageOfHost} width="6" />
           <div className="flex gap-2 items-center">
-            <FontAwesomeIcon icon={faStar} className="w-5 text-yellow-500" />
+            <SvgIcon
+              iconName="star"
+              svgProp={{ width: "1.25rem", height: "1.25rem" }}
+            />
             <span className="text-neutrals2 font-medium">{rating}</span>
             <span className="hidden md:block">({reviews} reviews)</span>
           </div>
@@ -50,7 +43,7 @@ const RentPropertyHeading = ({
         </div>
       </div>
       <hr className="md:hidden text-neutrals6" />
-      <div className="icons flex gap-4 ps-8 md:ps-0">
+      <div className="relative icons flex gap-4 ps-8 md:ps-0">
         {iconsArray.map((icon, index) => (
           <IconsCirrcle key={index} icon={icon} />
         ))}
@@ -62,20 +55,20 @@ const RentPropertyHeading = ({
 export default RentPropertyHeading;
 
 const iconsArray = [
-  faLocationArrow,
-  faArrowUpFromBracket,
-  faHeart,
-  faEllipsis,
-  faXmark,
+  "LocationLine",
+  "ShareSquareLine",
+  "HeartLine",
+  "MoreLine",
+  "CloseLine",
 ];
 
 const iconsAndTitle = [
   {
-    icon: faHouse,
+    icon: "HomeLine",
     title: "Superhost",
   },
   {
-    icon: faFlag,
+    icon: "FlagLine",
     title: "Queenstown,Otago,New Zealand",
   },
 ];

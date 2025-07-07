@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import InputSearch from "../molecules/InputSearch";
 
 const FilterSection = () => {

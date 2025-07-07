@@ -1,9 +1,5 @@
-import {
-  faCircleXmark,
-  faLocationArrow,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const LocationSelector = ({
   search,
@@ -20,9 +16,10 @@ const LocationSelector = ({
 
   return (
     <div className="relative w-full flex gap-3 rounded-2xl bg-neutrals8 shadow-depth4">
-      <FontAwesomeIcon
-        icon={faLocationArrow}
-        className="w-8 mt-2 text-neutrals5"
+      <SvgIcon
+        iconName="LocationLine"
+        wrapperStyle="mt-1.5"
+        svgProp={{ width: "2rem" }}
       />
       <div>
         <input
@@ -39,10 +36,11 @@ const LocationSelector = ({
         </p>
       </div>
       {isFocused && search.length > 0 && (
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          className="w-7 text-neutrals5 top-0 end-0 cursor-pointer"
-          onClick={() => setSearch("")}
+        <SvgIcon
+          iconName="CloseCircleLine"
+          wrapperStyle="mt-1.5 top-0 end-0 cursor-pointer"
+          svgProp={{ width: "1.75rem" }}
+          handleClick={() => setSearch("")}
         />
       )}
       {isFocused && search.length > 0 && filteredCities.length > 0 && (

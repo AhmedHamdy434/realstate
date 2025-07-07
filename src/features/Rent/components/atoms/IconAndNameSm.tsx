@@ -1,18 +1,17 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SvgIcon from "../../../../shared/components/atoms/SvgIcon";
 
 const IconAndNameSm = ({
   icon,
   title,
   className,
 }: {
-  icon: IconDefinition;
+  icon: string;
   title: string;
   className?: string;
 }) => {
   return (
     <div className={`flex items-center gap-2 text-neutrals4 ${className}`}>
-      <FontAwesomeIcon icon={icon} className="w-5" />
+      <SvgIcon iconName={icon} svgProp={{ width: "1.25rem" }} />
       <span className="text-sm leading-6">{title}</span>
     </div>
   );

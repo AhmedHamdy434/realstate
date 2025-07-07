@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { ButtonWithIconType } from "../../types/sharedTypes";
+import SvgIcon from "./SvgIcon";
 
 const ButtonWithIcon2 = ({
   buttonName,
@@ -19,9 +19,10 @@ const ButtonWithIcon2 = ({
       <span>{buttonName}</span>
       {icon && (
         <div className="flex justify-center items-center w-4 h-4">
-          <FontAwesomeIcon
-            icon={icon}
-            className={`text-neutrals4 ${classNameIcon}`}
+          <SvgIcon
+            iconName={icon}
+            wrapperStyle={classNameIcon}
+            svgProp={{ width: "100%" }}
           />
         </div>
       )}

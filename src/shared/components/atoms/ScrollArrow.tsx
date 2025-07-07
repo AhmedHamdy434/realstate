@@ -1,5 +1,4 @@
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SvgIcon from "./SvgIcon";
 
 const ScrollArrow = ({
   handleClick,
@@ -18,9 +17,8 @@ const ScrollArrow = ({
       } p-2`}
       onClick={handleClick}
     >
-      <FontAwesomeIcon
-        icon={direction === "left" ? faArrowLeft : faArrowRight}
-        className="w-full text-neutrals4"
+      <SvgIcon
+        iconName={direction === "left" ? "ArrowLeftLine" : "ArrowRightLine"}
       />
     </div>
   );
